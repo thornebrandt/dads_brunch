@@ -1,0 +1,39 @@
+body{
+    color: green;
+    font-family: Helvetica;
+}
+
+.dudePreview{
+    text-decoration: none;
+    display:block;
+    border: black solid 1px;
+    width: 200px;
+    background: gray;
+    margin: 10px;
+    color: white;
+    padding: 10px;
+    &:hover{
+        color: pink;
+    }
+    .dudePreviewThumb{
+        height: 50px;
+        float: right;
+    }
+}
+
+#thumbPreview, .thumb{
+    width: 100px;
+}
+
+.form-sep{
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+
+
+#dude-photo, .dude-photo{
+width: 400px;
+border: gray solid 1px;
+text-align: center;
+}

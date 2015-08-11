@@ -1,0 +1,13 @@
+#start mongo
+mongod --nojournal --dbpath=data
+
+#to start node server
+DEBUG=main node ./server-mongo/server.js
+
+#to start brunch
+npm start
+
+
+
+#to find non-existent values
+db.testCollection.find( { date: { $exists: false }})

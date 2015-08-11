@@ -1,0 +1,10 @@
+module.exports = {
+  dbURI: 'mongodb://testUser:testPassword@localhost:1234/dads',
+  origin: 'http://dadschicago.com',
+  BASE_URL: 'http://localhost:1234',
+  PORT_NUMBER: 1234,
+  public_path: '/../../public',
+  upload_path: '/api/uploads/',
+  thumb_path: 'public/uploads/thumbs/',
+  auth_token: "123456"
+}

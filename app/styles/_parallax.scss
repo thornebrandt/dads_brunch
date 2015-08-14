@@ -2,9 +2,9 @@
     perspective: 1px;
     -webkit-perspective: 1px;
     height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
     perspective-origin-x: 100%;
+    min-width: 100%;
+    overflow-x: hidden;
     -webkit-perspective-origin: 100%;
 
 }
@@ -12,21 +12,37 @@
 .plx_layer{
     position: absolute;
     top: 0;
-    right: 0;
     bottom: 0;
+    right: 0;
     left: 0;
+    max-width: 100%;
     perspective-origin-x: 100%;
     -webkit-perspective-origin: 100%;
 }
 
+
 .plx_bg1{
-    transform: translateZ(0);
+    transform: translateX(-51%) translateZ(-1px) scale(2.1);
+}
+
+
+.plx_bg1b{
+    transform: translate(-77%) translateZ(-1.5px) scale(2.6);
 }
 
 .plx_bg2{
-    transform: translateZ(-2px) scale(1);
+    transform: translateX(-102%) translateZ(-2px) scale(3);
+}
+
+
+.plx_bg2b{
+    transform: translateX(-127%) translateZ(-2.5px) scale(3.6);
 }
 
 .plx_bg3{
     transform: translateX(-150%) translateZ(-3px) scale(4);
+}
+
+.plx_bg4{
+    transform: translateX(-180%) translateZ(-4px) scale(5);
 }

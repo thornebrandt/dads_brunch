@@ -1,6 +1,7 @@
 var View     = require('./view')
   , template = require('../templates/app-template')
-  , jqueryHelper = require('../helpers/jqueryHelper');
+  , jqueryHelper = require('../helpers/jqueryHelper')
+  , browserHelper = require('../helpers/browserHelper')
 
 module.exports = View.extend({
     el: "body",
@@ -18,8 +19,13 @@ module.exports = View.extend({
         }
     },
 
+    afterRender: function(){
+        $("#main_container").removeClass("z500").addClass("z400");
+    },
+
     initialize: function(){
         jqueryHelper.initialize();
+        browserHelper();
         this.pubSub();
     },
 

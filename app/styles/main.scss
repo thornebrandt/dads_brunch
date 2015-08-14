@@ -7,11 +7,48 @@
 
 
 
-body{
+body, html{
     color: white;
     font-family: "mostra-nuova",sans-serif !important;
-    overflow-y: hidden;
+    max-width: 100%;
+    background: black;
 }
+
+
+.z500{
+    z-index: 500;
+}
+
+
+.z400{
+    z-index: 400;
+}
+
+.z300{
+    z-index: 300;
+}
+
+.z200{
+    z-index: 200;
+}
+
+.z100{
+    z-index: 100;
+}
+
+.z2{
+    z-index: 2;
+}
+
+.z1{
+    z-index: 1;
+}
+
+.z0{
+    z-index: 0;
+}
+
+
 
 h1{
     color: $color-orange;
@@ -29,22 +66,23 @@ h1{
     }
 }
 
+
 #background{
     position: absolute;
     top: 0px;
     left: 0px;
     width: 100%;
-    min-height: 700px;
+    max-height: 80%;
+    height: 80%;
     display: block;
     backgound-color: black;
-    background-image: url("../images/bg_gradient.png");
+    background-image: url("../images/bg_gradient_small.png");
     background-repeat: repeat-x;
-    overflow-y: hidden;
 }
 
 #menu{
     width: 100%;
-    background: url("../images/transparent_black.png");
+    background: url("../images/transparent_black_70.png");
     display: block;
     list-style-type: none;
     text-align: center;
@@ -63,8 +101,8 @@ h1{
 }
 
 #dads_logo_container{
-    top: 130px;
     text-align: center;
+    margin-top: 190px;
 }
 
 #dads_logo{
@@ -74,19 +112,76 @@ h1{
 
 #main_container{
     width: 100%;
-    position: absolute;
-    top: 200px;
+    position: relative;
+    margin-top: 40%;
 }
 
 #main{
     width: 80%;
     position: relative;
-    background: url("../images/transparent_black.png");
+    background: url("../images/transparent_black_85.png");
     margin-left: auto;
     margin-right: auto;
     min-height: 300px;
     border-radius: 30px;
     padding: 30px;
+    img{
+        max-width: 100%;
+    }
+}
+
+#terrain1_container{
+    margin-top: 350px;
+    overflow: visible;
+}
+
+
+#terrain1{
+    background: url("../images/terrain1.png") no-repeat;
+    background-size: cover;
+    height: 100%;
+    min-height: 800px;
+    width: 100%;
+}
+
+#terrain2_container{
+    margin-top: 380px;
+    overflow: visible;
+}
+
+#terrain2{
+    background: url("../images/terrain2.png") no-repeat;
+    background-size: cover;
+    height: 100%;
+    min-height: 800px;
+    width: 100%;
+}
+
+
+#terrain_black_container{
+    bottom: 0px;
+    left: 0px;
+    margin-top: 1000px;
+    position: fixed;
+    overflow: visible;
+}
+
+#terrain_black{
+    background: url("../images/terrain_black.png") no-repeat;
+    background-size: cover;
+    height: 100%;
+    min-height: 800px;
+    width: 100%;
+}
+
+
+#container{
+}
+
+
+.contact_info{
+    font-family: "Helvetica", sans-serif;
+    text-align: center;
 }
 
 

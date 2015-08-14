@@ -1,6 +1,6 @@
 var View     = require('./view');
 var DudePreviewView = require('../views/dude-preview-view');
-var template = require('../templates/index');
+var template = require('../templates/index-template');
 var DudeModel = require('../models/dude-model');
 var DudeCollection = require('../collections/dude-collection');
 

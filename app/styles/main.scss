@@ -1,7 +1,94 @@
+@import "bourbon/bourbon";
+@import "base/grid-settings";
+@import "neat/neat";
+@import "base/base";
+
+@import "parallax";
+
+
+
 body{
-    color: green;
-    font-family: Helvetica;
+    color: white;
+    font-family: "mostra-nuova",sans-serif !important;
+    overflow-y: hidden;
 }
+
+h1{
+    color: $color-orange;
+    font-weight: 200;
+    font-size: 2em;
+    margin: 0px;
+    text-align: center;
+
+    @include media($vertical-tablet-up){
+        font-size: 3em;
+    }
+
+    @include media($medium-screen-up) {
+        font-size: 4em;
+    }
+}
+
+#background{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    min-height: 700px;
+    display: block;
+    backgound-color: black;
+    background-image: url("../images/bg_gradient.png");
+    background-repeat: repeat-x;
+    overflow-y: hidden;
+}
+
+#menu{
+    width: 100%;
+    background: url("../images/transparent_black.png");
+    display: block;
+    list-style-type: none;
+    text-align: center;
+    text-decoration: none;
+    li{
+        display: inline-block;
+        margin: .4em 3em .4em 3em;
+        list-style-type: none;
+        a{
+            text-decoration: none;
+            color: $color-orange;
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+    }
+}
+
+#dads_logo_container{
+    top: 130px;
+    text-align: center;
+}
+
+#dads_logo{
+    text-align: center;
+}
+
+
+#main_container{
+    width: 100%;
+    position: absolute;
+    top: 200px;
+}
+
+#main{
+    width: 80%;
+    position: relative;
+    background: url("../images/transparent_black.png");
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 300px;
+    border-radius: 30px;
+    padding: 30px;
+}
+
 
 .dudePreview{
     text-decoration: none;

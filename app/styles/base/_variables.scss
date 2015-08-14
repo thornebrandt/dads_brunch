@@ -1,0 +1,114 @@
+// Font Size @ 8:9 Major Second (x1.125)
+$fontSize-base: 18px;
+
+$fontSize-smallest: floor( modular-scale($fontSize-base, -3, $major-second) );  //12px
+$fontSize-smaller: floor( modular-scale($fontSize-base, -2, $major-second) );   //14px
+$fontSize-small: ceil( modular-scale($fontSize-base, -1, $major-second) );      //16px
+$fontSize-large: floor( modular-scale($fontSize-base, 2, $major-second) );      //22px
+$fontSize-larger: floor( modular-scale($fontSize-base, 4, $major-second) );     //28px
+$fontSize-largest: floor( modular-scale($fontSize-base, 6, $major-second) );    //36px
+$fontSize-tooDamnBig: floor( modular-scale($fontSize-base, 8, $major-second) ); //46px
+
+// Line Height @ 5:8 Minor Sixth (x1.6)
+$lineHeight-base: ceil($fontSize-base * 1.6); //1
+
+$lineHeight-tighter: ceil( modular-scale($lineHeight-base, -2, $minor-sixth) ); //.391
+$lineHeight-tight: floor( modular-scale($lineHeight-base, -1, $minor-sixth) );  //.625
+$lineHeight-loose: ceil( modular-scale($lineHeight-base, 1, $minor-sixth) );    //1.6
+$lineHeight-looser: ceil( modular-scale($lineHeight-base, 2, $minor-sixth) );   //2.56
+
+// Headings
+$h1-line: $lineHeight-base;
+$h1-lines: 2;
+$h1-line-height: $h1-line * $h1-lines;
+$h1-margin-top: 2 * $h1-line;
+$h1-margin-bottom: 1 * $h1-line;
+
+$h2-line: $lineHeight-base;
+$h2-lines: 1;
+$h2-line-height: $h2-line * $h2-lines;
+$h2-margin-top: 2 * $h2-line;
+$h2-margin-bottom: 0 * $h2-line;
+
+$h3-line: $lineHeight-base;
+$h3-lines: 1;
+$h3-line-height: $h3-line * $h3-lines;
+$h3-margin-top: 1 * $h3-line;
+$h3-margin-bottom: 1 * $h3-line;
+
+$h4-line: $lineHeight-base;
+$h4-lines: 1;
+$h4-line-height: $h4-line * $h4-lines;
+$h4-margin-top: 1 * $h4-line;
+$h4-margin-bottom: 1 * $h4-line;
+
+// Other Sizes
+$borderRadius-base: 6px;
+$base-spacing: $lineHeight-base * 1em;
+$nav-height: 70px;
+
+// Z-Index
+$zIndex-base: 0;
+$zIndex-1: 10;
+$zIndex-2: 25;
+$zIndex-3: 50;
+$zIndex-4: 75;
+$zIndex-5: 100;
+$zIndex-6: 1000;    //Ads
+$zIndex-7: 10000;   //Navigation & Menus
+$zIndex-8: 100000;  //Overlays
+$zIndex-9: 1000000; //Modal/Overlay Content
+
+// Colors
+$color-red: rgba(205,106,116,1);
+$color-blue: rgba(58,176,237,1);
+$color-white: rgba(255,255,255,1);
+$color-orange: rgba(242,183,85,1);
+$color-purple: rgba(181,141,214,1);
+$color-yellow: rgba(251,251,154,1);
+$color-orange: #cead73;
+
+
+
+$color-neon-green: rgba(198,233,121,1);  //Revolution Green
+$color-light-green: rgba(151,224,139,1); //Highlight Green
+$color-green: rgba(140,204,125,1);       //Shiftgig Green
+$color-dark-green: rgba(101,152,92,1);   //Shadow Green
+$color-grey-green: rgba(102,111,110,1);  //Logo Text Green
+
+$color-light-gray: rgba(249,249,249,1);
+$color-gray: rgba(226,226,226,1);
+$color-medium-gray: rgba(149,149,149,1);
+$color-dark-gray: rgba(74,74,74,1);
+
+
+
+
+// Background Color
+$base-bg-color: $color-light-gray;
+
+// Font Colors
+$base-font-color: $color-dark-gray;
+$base-accent-color: $color-light-green;
+
+// Link Colors
+$base-link-color: $color-blue;
+$hover-link-color: darken($base-accent-color, 15);
+$base-button-color: $color-green;
+$hover-button-color: lighten($base-button-color, 15);
+
+// Border color
+$base-border-color: $color-gray;
+
+// Flash Colors
+$alert-color: $color-orange;
+$error-color: $color-red;
+$notice-color: $color-yellow;
+$success-color: $color-light-green;
+
+// Forms
+$form-border-color: $base-border-color;
+$form-border-color-hover: darken($base-border-color, 10);
+$form-border-color-focus: $base-accent-color;
+$form-border-radius: 4px;
+$form-font-size: $fontSize-base;

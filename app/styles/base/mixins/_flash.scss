@@ -1,0 +1,19 @@
+@mixin flash($color) {
+  position: relative;
+  background: $color;
+  color: darken($color, 60);;
+  font-size: $fontSize-small;
+  font-weight: 700;
+  line-height: 1.25;
+  padding: $lineHeight-base / 2;
+  .container {
+    padding-right: $lineHeight-base;
+  }
+  .dismiss {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -$lineHeight-base / 2;
+    color: inherit;
+  }
+}

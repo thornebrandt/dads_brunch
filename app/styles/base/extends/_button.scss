@@ -1,0 +1,27 @@
+%button {
+	-webkit-font-smoothing: antialiased;
+	border: none;
+	border-radius: $borderRadius-base;
+	color: white;
+	display: inline-block;
+	white-space: normal;
+	font-family: "MuseoSansRounded";
+	font-size: $fontSize-base;
+	font-weight: 700;
+	line-height: 1;
+	padding: .75em 1.5em;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	outline: none;
+	background: $color-blue;
+	box-shadow: inset 0 -2px darken($color-blue, 25%);
+	cursor: pointer;
+	&:hover {
+		background: rgb(61,190,255);
+		color: white;
+	}
+	&:active {
+		box-shadow: inset 0 2px darken($color-blue, 25%);
+	}
+}

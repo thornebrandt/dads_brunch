@@ -1,0 +1,51 @@
+/* Utility Classes & Mixins */
+
+.u-textLeft {
+	text-align: left;
+}
+.u-textRight {
+	text-align: right;
+}
+.u-textCenter {
+	text-align: center
+}
+.u-center {
+	margin: 0 auto;
+}
+.u-pullRight {
+	float: right;
+}
+.u-red {
+  color: $color-red;
+}
+.u-textLight {
+  font-weight: 100;
+}
+.u-fixedTop,
+.u-fixedTopAd {
+  position: fixed !important;
+  top: 0 !important;
+  backface-visibility: hidden;
+}
+.u-fixedTopAd {
+	top: 600px !important;
+	padding-left: 34px;
+}
+.u-groupedHeadings {
+  margin: $lineHeight-base 0;
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    &:last-child {
+      font-weight: 300;
+      color: $color-light-green;
+    }
+  }
+}
+
+.u-outerContainer {
+  @include outer-container();
+
+  @include media($huge-screen-up) {
+    @include outer-container(1400px);
+  }
+}

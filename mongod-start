@@ -11,3 +11,20 @@ npm start
 
 #to find non-existent values
 db.testCollection.find( { date: { $exists: false }})
+
+
+
+
+
+
+Thin    "mostra-nuova"  200 normal
+
+Light   "mostra-nuova"  300 normal
+
+Regular "mostra-nuova"  400 normal
+
+Bold    "mostra-nuova"  700 normal
+
+Heavy   "mostra-nuova"  800 normal
+
+Black   "mostra-nuova"  900 normal

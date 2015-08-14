@@ -1,0 +1,19 @@
+/* Brand Gradients */
+
+@mixin brand-gradient($color, $angle: to top right) {
+  @if $color == green {
+    @include linear-gradient($angle, #8CCC81, #AEF386);
+  }
+  @else if $color == blue {
+    @include linear-gradient($angle, #1C95D2, #61CAFF);
+  }
+  @else if $color == purple {
+    @include linear-gradient($angle, #502275, #B58DD6);
+  }
+  @else if $color == orange {
+    @include linear-gradient($angle, #FF8E00, #F2B755);
+  }
+  @else if $color == grey {
+    @include linear-gradient($angle, #1F2122, #515151);
+  }
+}

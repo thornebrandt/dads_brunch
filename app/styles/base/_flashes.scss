@@ -1,0 +1,18 @@
+.flash-alert {
+	@include flash($alert-color);
+	color: rgb(255,255,255);
+}
+
+.flash-error {
+	@include flash($error-color);
+	color: rgb(255,255,255);
+}
+
+.flash-notice {
+	@include flash($notice-color);
+}
+
+.flash-success {
+	@include flash($success-color);
+	color: rgb(255,255,255);
+}

@@ -1,0 +1,25 @@
+@import "neat/neat-helpers";
+
+// Neat Overrides
+$column: 75px;
+$gutter: 25px;
+$grid-columns: 12;
+$max-width: 1200px;
+
+
+// Breakpoints
+$small-screen: em(321);
+$vertical-tablet: em(600);
+$medium-screen: em(950);
+$large-screen: em(1440);
+$huge-screen: em(1920);
+$tall-screen: em(51);
+
+
+$small-screen-down: new-breakpoint(max-width $small-screen);
+$vertical-tablet-down: new-breakpoint(max-width $vertical-tablet - 1);
+$vertical-tablet-up: new-breakpoint(min-width $vertical-tablet);
+$medium-screen-up: new-breakpoint(min-width $medium-screen);
+$large-screen-up: new-breakpoint(min-width $large-screen);
+$huge-screen-up: new-breakpoint(min-width $huge-screen);
+$tall-screen-up: new-breakpoint(min-height $tall-screen);

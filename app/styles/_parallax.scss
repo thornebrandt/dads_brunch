@@ -22,28 +22,39 @@
 
 .plx_bg1{
     transform: translateX(-51%) translateZ(-1px) scale(2.1);
+    -webkit-transform: translateX(-51%) translateZ(-1px) scale(2.1);
 }
 
 
 .plx_bg1b{
     transform: translate(-77%) translateZ(-1.5px) scale(2.6);
+    -webkit-transform: translate(-77%) translateZ(-1.5px) scale(2.6);
+
 }
 
 .plx_bg2{
     transform: translateX(-102%) translateZ(-2px) scale(3);
+    -webkit-transform: translateX(-102%) translateZ(-2px) scale(3);
+
 }
 
 
 .plx_bg2b{
     transform: translateX(-127%) translateZ(-2.5px) scale(3.6);
+    -webkit-transform: translateX(-127%) translateZ(-2.5px) scale(3.6);
+
 }
 
 .plx_bg3{
     transform: translateX(-155%) translateZ(-3px) scale(4);
+    -webkit-transform: translateX(-155%) translateZ(-3px) scale(4);
+
 }
 
 .plx_bg4{
     transform: translateX(-180%) translateZ(-4px) scale(5);
+    -webkit-transform: translateX(-180%) translateZ(-4px) scale(5);
+
 }
 
 .firefox{
@@ -70,5 +81,12 @@
 
     .plx_bg4{
         transform: translateZ(-4px) scale(5);
+    }
+}
+
+
+.safari{
+    .plx_layer{
+        background: yellow;
     }
 }

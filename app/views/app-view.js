@@ -20,9 +20,16 @@ module.exports = View.extend({
     },
 
     afterRender: function(){
-        console.log("rendere");
         $("#container").scroll(function(){
-            console.log("adding class");
+            var currentScroll = $(this).scrollTop() + $(this).innerHeight();
+            var scrollHeight = this.scrollHeight - 2;
+            if(currentScroll >= scrollHeight ){
+                $("#dogHead").animate({
+                    "top" : "0px"
+                },
+                    600
+                );
+            }
         });
     },
 

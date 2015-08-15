@@ -24,7 +24,7 @@ module.exports = View.extend({
     renderShowCollection: function(){
         var self = this;
         this.showCollection.each(function(model){
-            $(self.el).append("<div class='showPreviewContainer' id='" + model.get("_id") + "'></div>");
+            $("#main").append("<div id='" + model.get("_id") + "'></div>");
             var showPreviewView = new ShowPreviewView(model);
             showPreviewView.render();
         });

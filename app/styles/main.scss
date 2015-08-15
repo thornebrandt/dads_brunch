@@ -13,8 +13,8 @@ body{
     max-width: 100%;
     background: black;
     position: relative;
-    overflow: hidden;
     height: 100%;
+    overflow: hidden;
 }
 
 
@@ -132,11 +132,15 @@ h1{
     background: url("../images/transparent_black_85.png");
     margin-left: auto;
     margin-right: auto;
-    min-height: 300px;
+    min-height: 900px;
     border-radius: 30px;
     padding: 30px;
     img{
         max-width: 100%;
+    }
+    &.visible{
+        margin-top: -350px;
+        min-height: 1000px;
     }
 }
 
@@ -168,7 +172,7 @@ h1{
 }
 
 #terrain_black_container{
-    top: 1000px;
+    top: 1900px;
     min-height: 100%;
     overflow: visible;
 }
@@ -177,7 +181,7 @@ h1{
 #terrain_black{
     background: url("../images/terrain_black.png") no-repeat;
     background-size: 100%;
-    height: 800px;
+    height: 900px;
     width: 100%;
     position: absolute;
     bottom: -600px;
@@ -248,4 +252,44 @@ h1{
 width: 400px;
 border: gray solid 1px;
 text-align: center;
+}
+
+
+#mainShowPhoto{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+}
+
+
+
+
+
+
+#admin{
+    background-color: gray;
+    min-height: 100%;
+    padding: 10px;
+    font-size: 18px;
+
+    a{
+        text-decoration:none;
+        color: black;
+        &:hover{
+            text-decoration: underline;
+        }
+
+    }
+
+}
+
+
+
+#admin_menu{
+width: 100%;
+padding: 10px;
+font-size: 18px;
+overflow: scroll;
 }

@@ -1,21 +1,21 @@
 var View     = require('./view');
-var DudePreviewView = require('../views/dude-preview-view');
-var template = require('../templates/dude-template');
-var DudeModel = require('../models/dude-model');
+var ShowPreviewView = require('../views/show-preview-view');
+var template = require('../templates/show-template');
+var ShowModel = require('../models/show-model');
 var time = require('../helpers/dateHelper');
 var PhotoCollection = require('../collections/photo-collection')
 var PhotoPreviewView = require('../views/photo-preview-view');
 
 module.exports = View.extend({
-    el: "#main",
+    el: "#main_container",
     id: 'index-view',
     template: template,
     afterRender: function(){
         this.fetchPhotos();
     },
     events: {
-        'click #backToDudes' : 'backToDudesHandler',
-        'click #editDudeBtn' : 'clickEditDudeHandler',
+        'click #backToShows' : 'backToShowsHandler',
+        'click #editShowBtn' : 'clickEditShowHandler',
     },
     getRenderData: function(){
         return this.model.toJSON();
@@ -39,20 +39,18 @@ module.exports = View.extend({
 
     renderPhotos: function(){
         this.photoCollection.each(function(model){
-            $("#dudePhotos").append("<div class='photoPreviewContainer' id='"+model.get("_id")+"'></div>");
+            $("#showPhotos").append("<div class='photoPreviewContainer' id='"+model.get("_id")+"'></div>");
             var photoPreviewView = new PhotoPreviewView(model);
             photoPreviewView.render();
         });
     },
 
 
-    fetchDude: function(_date, _dude){
+    fetchShow: function(_urlTitle){
         var self = this;
-        this.URLdate = _date;
-        this.dude = _dude;
-        this.date = new moment(this.URLdate, time.url_format).format(time.UTC_format);
-        var url = BASE_URL + "/dude/" + this.date + "/" + this.dude;
-        this.model = new DudeModel();
+        this.urlTitle = _urlTitle
+        var url = BASE_URL + "/show/" + this.urlTitle;
+        this.model = new ShowModel();
         this.model.fetch({
             url: url,
             success: function(data, textStatus, options){
@@ -60,20 +58,20 @@ module.exports = View.extend({
                 self.render();
             },
             error: function(model, e){
-                console.log("something went wrong getting a specific dude");
+                console.log("something went wrong getting a specific show");
                 console.log(e.responseText);
             }
         });
     },
 
-    backToDudesHandler: function(e){
+    backToShowsHandler: function(e){
         e.preventDefault();
-        App.router.navigate("/dudes/", { trigger: true });
+        App.router.navigate("/shows/", { trigger: true });
     },
 
-    clickEditDudeHandler: function(e){
+    clickEditShowHandler: function(e){
         e.preventDefault();
-        var url = "/dudes/" + this.URLdate + "/" + this.dude  + "/edit"
+        var url = "/shows/" + this.URLdate + "/" + this.show  + "/edit"
         App.router.navigate(url, { trigger: true });
     },
 

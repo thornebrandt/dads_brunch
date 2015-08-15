@@ -1,20 +1,20 @@
 var ModelView     = require('./model-view');
-var template = require('../templates/dude-preview-template');
-var DudeModel = require('../models/dude-model');
+var template = require('../templates/show-preview-template');
+var ShowModel = require('../models/show-model');
 
 module.exports = ModelView.extend({
     events: {
-        "click .dudePreview" : "goToSpecificDude"
+        "click .showPreview" : "goToSpecificShow"
     },
     getRenderData: function(){
         this.model.formatDate();
         return this.model.toJSON();
     },
-    goToSpecificDude: function(e){
+    goToSpecificShow: function(e){
         e.preventDefault();
-        var dude = $(e.currentTarget).attr("data-dude");
+        var title = $(e.currentTarget).attr("data-title");
         var date = $(e.currentTarget).attr("data-date");
-        var url =   "/dudes/" + date + "/" + dude;
+        var url =   "/shows/" + date + "/" + title;
         App.router.navigate(url, { trigger: true });
     },
     template: template,

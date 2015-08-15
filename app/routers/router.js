@@ -3,21 +3,23 @@ var App = require('application');
 module.exports = Backbone.Router.extend({
     initialize: function(){
         App.Views.AppView = require('../views/app-view');
+        App.Views.AdminView = require('../views/admin-view');
         App.Views.IndexView = require('../views/index-view');
-        App.Views.DudesView = require('../views/dudes-view');
-        App.Views.DudeView = require('../views/dude-view');
-        App.Views.NewDudeView = require('../views/new-dude-view');
-        App.Views.EditDudeView = require('../views/edit-dude-view');
+        App.Views.AdminShowsView = require('../views/admin-shows-view');
+        App.Views.ShowView = require('../views/show-view');
+        App.Views.NewShowView = require('../views/new-show-view');
+        App.Views.EditShowView = require('../views/edit-show-view');
         this.setupAjax();
 
     },
 
     routes: {
         '': 'index',
-        'dudes(/)': 'dudes',
-        'dudes/new(/)': 'newDude',
-        'dudes/:date/:dude(/)' : 'specificDude',
-        'dudes/:data/:dude/edit(/)' : 'editDude',
+        'admin(/)' : 'admin',
+        'admin/shows(/)': 'adminShows',
+        'admin/shows/new(/)': 'newShow',
+        'shows/:urlTitle(/)' : 'specificShow',
+        'shows/:data/:show/edit(/)' : 'editShow',
         'login/:password': 'loginRoute',
         'logout' : 'logoutRoute',
         '*path' : 'defaultRoute',
@@ -31,8 +33,10 @@ module.exports = Backbone.Router.extend({
         //$.cookie('password', md5(_password), { expires: 7, path: '/' });
         window.localStorage.setItem('password', md5(_password));
         App.authorized = true;
+        console.log("setting app authorized");
+        console.log(App.authorized);
         this.setupAjax();
-        this.navigate("dudes", {trigger: true, replace: true })
+        this.navigate("shows", {trigger: true, replace: true })
     },
 
     logoutRoute: function(){
@@ -45,11 +49,20 @@ module.exports = Backbone.Router.extend({
     },
 
     loadApp: function(){
+        App.adminView = false;
         if(!App.appView) {
             App.appView = new App.Views.AppView();
             App.appView.render();
         }
         this.garbageCollection();
+    },
+
+    loadAdmin: function(){
+        App.appView = false;
+        if(!App.adminView){
+            App.adminView = new App.Views.AdminView();
+            App.adminView.render();
+        }
     },
 
     index: function() {
@@ -58,35 +71,44 @@ module.exports = Backbone.Router.extend({
         App.views.indexView.render();
     },
 
-    specificDude: function(_date, _dude){
+    specificShow: function(_urlTitle){
         this.loadApp();
-        App.views.dudeView = new App.Views.DudeView();
-        App.views.dudeView.fetchDude(_date, _dude);
+        App.views.showView = new App.Views.ShowView();
+        App.views.showView.fetchShow(_urlTitle);
     },
 
-    editDude: function(_date, _dude){
-        this.loadApp();
+    editShow: function(_date, _show){
         if(App.authorized){
-            App.views.editDudeView = new App.Views.EditDudeView();
-            App.views.editDudeView.fetchDude(_date, _dude);
+            this.loadAdmin();
+            App.views.editShowView = new App.Views.EditShowView();
+            App.views.editShowView.fetchShow(_date, _show);
         } else {
             App.error("Not authorized to edit");
             this.navigate("/", { trigger: true, replace: true });
         }
     },
 
-
-    dudes: function(){
-        this.loadApp();
-        App.views.dudesView = new App.Views.DudesView();
-        App.views.dudesView.render();
+    admin: function(){
+        console.log("admin route");
+        if(App.authorized){
+            this.loadAdmin();
+        }
     },
 
-    newDude: function(){
-        this.loadApp();
+
+    adminShows: function(){
         if(App.authorized){
-            App.views.newDudeView = new App.Views.NewDudeView();
-            App.views.newDudeView.render();
+            this.loadAdmin();
+            App.views.adminShowsView = new App.Views.AdminShowsView();
+            App.views.adminShowsView.render();
+        }
+    },
+
+    newShow: function(){
+        if(App.authorized){
+            this.loadAdmin();
+            App.views.newShowView = new App.Views.NewShowView();
+            App.views.newShowView.render();
         } else {
             App.error("Not authorized to create new dudes");
             this.navigate("/", { trigger: true, replace: true });

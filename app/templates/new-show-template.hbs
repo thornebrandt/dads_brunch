@@ -1,8 +1,14 @@
-<form id="dudeForm" enctype="multipart/form-data">
-    Dude: <input type="text" name="dude" id="dudeInput" required/>
+<h2>Create a new Show</h2>
+
+<form id="showForm" enctype="multipart/form-data">
+    Title: <input type="text" name="title" id="titleInput" required/>
     <br>
-    Greeting: <input type="text" name="greeting" id="greetingInput" required/>
+    Url (No special characters): <input type="text" name="urlTitle" id="urlTitleInput" require />
     <br>
+    Summary (Time of day, artist): <input type="text" name="summary" id="summaryInput" required/>
+    <br>
+    Description (Long Description, other photos):
+    <textarea name="comment" form="showForm">Enter text here...</textarea>
     <div id="inlineDatePicker"></div>
     <input type="hidden" name="date" id="dateInput" />
     <br>

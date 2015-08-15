@@ -10,7 +10,7 @@ module.exports = View.extend({
     events: {
         "click #newDudeBtn" : "newDudeBtnHandler",
         "click #allDudesBtn" : "allDudesBtnHandler",
-        "click #homeBtn" : "homeBtnHandler"
+        "click #homeBtn" : "homeBtnHandler",
     },
 
     getRenderData: function(){
@@ -20,6 +20,16 @@ module.exports = View.extend({
     },
 
     afterRender: function(){
+        this.domEvents();
+    },
+
+
+    domEvents: function(){
+        //this.dogHead();
+    },
+
+
+    dogHead: function(){
         $("#container").scroll(function(){
             var currentScroll = $(this).scrollTop() + $(this).innerHeight();
             var scrollHeight = this.scrollHeight - 2;
@@ -27,15 +37,13 @@ module.exports = View.extend({
                 $("#dogHead").animate({
                     "top" : "0px"
                 },
-                    600
+                    300
                 );
             }
         });
     },
 
-    scrollFunction: function(){
-        console.log("Scrolling");
-    },
+
 
     initialize: function(){
         jqueryHelper.initialize();

@@ -7,6 +7,10 @@ App = {
         this.Models = {};
         this.models = {}; //instances
         this.router   = new Router();
+
+        if( window.localStorage.getItem("password") ){
+            App.authorized = true;
+        }
     },
     error: function(_string){
         $("#dialogErrorContent").html(_string);

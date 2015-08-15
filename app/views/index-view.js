@@ -1,33 +1,32 @@
 var View     = require('./view');
-var DudePreviewView = require('../views/dude-preview-view');
+var ShowPreviewView = require('../views/show-preview-view');
 var template = require('../templates/index-template');
-var DudeModel = require('../models/dude-model');
-var DudeCollection = require('../collections/dude-collection');
+var ShowCollection = require('../collections/dude-collection');
 
 
 module.exports = View.extend({
-    el: "#main",
+    el: "#main_container",
     id: 'index-view',
     template: template,
     afterRender: function(){
-        this.setupDudeCollection();
+        this.setupShowCollection();
     },
-    setupDudeCollection: function(){
-        this.dudeCollection = new DudeCollection();
+    setupShowCollection: function(){
+        this.showCollection = new ShowCollection();
         var self = this;
-        this.dudeCollection.fetch({
-            url: BASE_URL + "/currentDude",
+        this.showCollection.fetch({
+            url: BASE_URL + "/currentShow",
             success: function(data){
-                self.renderDudeCollection();
+                self.renderShowCollection();
             }
         });
     },
-    renderDudeCollection: function(){
+    renderShowCollection: function(){
         var self = this;
-        this.dudeCollection.each(function(model){
-            $(self.el).append("<div class='dudePreviewContainer' id='" + model.get("_id") + "'></div>");
-            var dudePreviewView = new DudePreviewView(model);
-            dudePreviewView.render();
+        this.showCollection.each(function(model){
+            $(self.el).append("<div class='showPreviewContainer' id='" + model.get("_id") + "'></div>");
+            var showPreviewView = new ShowPreviewView(model);
+            showPreviewView.render();
         });
     }
 })

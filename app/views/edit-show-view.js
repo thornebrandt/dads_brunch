@@ -1,7 +1,7 @@
 var View     = require('./view');
-var DudePreviewView = require('../views/dude-preview-view');
-var template = require('../templates/edit-dude-template');
-var DudeModel = require('../models/dude-model');
+var ShowPreviewView = require('../views/show-preview-view');
+var template = require('../templates/edit-show-template');
+var ShowModel = require('../models/show-model');
 var time = require('../helpers/dateHelper');
 var FileHelper = require('../helpers/fileHelper');
 
@@ -10,20 +10,20 @@ module.exports = View.extend({
     id: 'index-view',
     template: template,
     events: {
-        'submit #dudeForm' : 'submitDudeFormHandler',
-        'submit #newDudePhotoForm' : 'submitDudePhotoFormHandler',
-        'click #dudeBtn' : 'clickDudeHandler',
-        'click #dudesBtn' : 'clickDudesHandler',
-        'click #deleteDudeBtn' : 'deleteDudeHandler'
+        'submit #showForm' : 'submitShowFormHandler',
+        'submit #newShowPhotoForm' : 'submitShowPhotoFormHandler',
+        'click #showBtn' : 'clickShowHandler',
+        'click #showsBtn' : 'clickShowsHandler',
+        'click #deleteShowBtn' : 'deleteShowHandler'
     },
 
     afterRender: function(){
         this.setupDatePick();
         this.setupPhotoUploader();
         this.setupThumbUploader();
-        this.setupDudePhotoUploader();
+        this.setupShowPhotoUploader();
         this.setupPhotoPreview();
-        this.setupDudePhotoPreview();
+        this.setupShowPhotoPreview();
         this.setupThumbPreview();
     },
     getRenderData: function(){
@@ -47,24 +47,24 @@ module.exports = View.extend({
         });
     },
 
-    setupDudePhotoPreview: function(){
+    setupShowPhotoPreview: function(){
         var fileHelper = new FileHelper();
         var self = this;
-        this.originalDudePhoto = $("#dudePhotoPreview").attr("src");
-        fileHelper.uploadImagePreview( $("#dudePhotoInput"), this.showPreviewDudePhoto, {
+        this.originalShowPhoto = $("#showPhotoPreview").attr("src");
+        fileHelper.uploadImagePreview( $("#showPhotoInput"), this.showPreviewShowPhoto, {
             onError: function(errorMessage){
                 App.error(errorMessage);
-                self.revertPreviewDudePhoto();
+                self.revertPreviewShowPhoto();
             }
         });
     },
 
-    showPreviewDudePhoto: function(source){
-        $("#dudePhotoPreview").attr("src", source);
+    showPreviewShowPhoto: function(source){
+        $("#showPhotoPreview").attr("src", source);
     },
 
-    revertPreviewDudePhoto: function(){
-        $("#dudePhotoPreview").attr("src", this.originalDudePhoto);
+    revertPreviewShowPhoto: function(){
+        $("#showPhotoPreview").attr("src", this.originalShowPhoto);
     },
 
     revertPreviewImage: function(){
@@ -95,8 +95,8 @@ module.exports = View.extend({
 
     setupUploader: function($el){
         var _id = this.model.get("_id");
-        var url = BASE_URL + "/dudes/edit/" + _id;
-        var url = BASE_URL + "/dudes/edit/";
+        var url = BASE_URL + "/shows/edit/" + _id;
+        var url = BASE_URL + "/shows/edit/";
         var self = this;
 
         $el.fileupload({
@@ -106,7 +106,7 @@ module.exports = View.extend({
             add: function(e, data){
                 $("#upload_btn").off('click').on('click', function(e){
                     e.preventDefault();
-                    var formObj = $("#dudeForm").serializeObject();
+                    var formObj = $("#showForm").serializeObject();
                     formObj._id = _id;
                     data.formData = formObj;
                     data.submit();
@@ -114,7 +114,7 @@ module.exports = View.extend({
 
             },
             done: function(e, data){
-                self.navigateToDude(data.result);
+                self.navigateToShow(data.result);
             },
             progressall: function(e, data){
                 var progress = parseInt(data.loaded / data.total * 100, 10);
@@ -131,26 +131,26 @@ module.exports = View.extend({
         this.setupUploader($("#thumbInput"));
     },
 
-    setupDudePhotoUploader: function(){
-        var dude_id = this.model.get("_id");
+    setupShowPhotoUploader: function(){
+        var show_id = this.model.get("_id");
         var url = BASE_URL + "/photos"
         var self = this;
-        console.log("setting up dude photo uploader");
-        $("#dudePhotoInput").fileupload({
+        console.log("setting up show photo uploader");
+        $("#showPhotoInput").fileupload({
             url: url,
             type: "POST",
             dataType: 'json',
             add: function(e, data){
                 $("#upload_sub_photo").off('click').on('click', function(e){
                     e.preventDefault();
-                    var formObj = $("#newDudePhotoForm").serializeObject();
-                    formObj.dude_id = dude_id;
+                    var formObj = $("#newShowPhotoForm").serializeObject();
+                    formObj.show_id = show_id;
                     data.formData = formObj;
                     data.submit();
                 });
             },
             done: function(e, data){
-                self.navigateToDude(self.model.toJSON());
+                self.navigateToShow(self.model.toJSON());
             },
             progressall: function(e, data){
             },
@@ -160,17 +160,14 @@ module.exports = View.extend({
         });
     },
 
-
-
-
     setupPhotoUploader: function(){
         //mainphoto
         this.setupUploader($("#photoInput"));
     },
 
-    deleteDudeHandler: function(e){
+    deleteShowHandler: function(e){
         e.preventDefault();
-        var url = BASE_URL + "/dude";
+        var url = BASE_URL + "/show";
         this.model.save(
             this.model.toJSON(),
             {
@@ -179,7 +176,7 @@ module.exports = View.extend({
             }
         ).then(
             function success(data){
-                App.router.navigate("dudes", { trigger: true });
+                App.router.navigate("shows", { trigger: true });
             },
             function error(e){
                 console.log("error deleting");
@@ -189,14 +186,14 @@ module.exports = View.extend({
 
     },
 
-    submitDudeFormHandler: function(e){
+    submitShowFormHandler: function(e){
         e.preventDefault();
         var self = this;
         var _id = this.model.get("_id");
-        this.model = new DudeModel( $(e.target).serializeObject() );
+        this.model = new ShowModel( $(e.target).serializeObject() );
         this.model.set("_id", _id);
 
-        var url = BASE_URL + "/dudes/edit";
+        var url = BASE_URL + "/shows/edit";
         this.model.save(
             this.model.toJSON(),
             {
@@ -206,7 +203,7 @@ module.exports = View.extend({
             }
         ).then(
             function success(data){
-                self.navigateToDude(data);
+                self.navigateToShow(data);
             },
             function error(e){
                 console.log("error patching");
@@ -219,7 +216,7 @@ module.exports = View.extend({
         console.log(this.model);
     },
 
-    submitDudePhotoFormHandler: function(e){
+    submitShowPhotoFormHandler: function(e){
         e.preventDefault();
         App.error("Must include a photo");
     },
@@ -237,41 +234,41 @@ module.exports = View.extend({
         $datePicker.datepicker('setDate', savedDate);
     },
 
-    fetchDude: function(_date, _dude){
+    fetchShow: function(_date, _show){
         var self = this;
         this.URLdate = _date;
-        this.dude = _dude;
+        this.show = _show;
         this.date = new moment(this.URLdate, time.url_format).format(time.UTC_format);
-        var url = BASE_URL + "/dude/" + this.date + "/" + this.dude;
-        this.model = new DudeModel();
+        var url = BASE_URL + "/show/" + this.date + "/" + this.show;
+        this.model = new ShowModel();
         this.model.fetch({
             url: url,
             success: function(data){
                 self.render();
             },
             error: function(model, response){
-                console.log("something went wrong getting a specific dude");
+                console.log("something went wrong getting a specific show");
                 console.log(response);
             }
         });
     },
 
-    clickDudeHandler: function(e){
+    clickShowHandler: function(e){
         e.preventDefault();
-        var url = "/dudes/" + this.URLdate + "/" + this.dude;
+        var url = "/shows/" + this.URLdate + "/" + this.show;
         App.router.navigate(url, { trigger: true });
     },
 
-    navigateToDude: function(_model){
-        var dudeModel = new DudeModel(_model);
-        dudeModel.formatDate();
-        var url = "/dudes/" + dudeModel.get("URLdate") + "/" + dudeModel.get("dude");
+    navigateToShow: function(_model){
+        var showModel = new ShowModel(_model);
+        showModel.formatDate();
+        var url = "/shows/" + showModel.get("URLdate") + "/" + showModel.get("show");
         App.router.navigate(url, { trigger: true });
     },
 
-    clickDudesHandler: function(e){
+    clickShowsHandler: function(e){
         e.preventDefault();
-        App.router.navigate("/dudes/", { trigger: true });
+        App.router.navigate("/shows/", { trigger: true });
     }
 
 

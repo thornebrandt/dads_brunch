@@ -8,24 +8,12 @@ var express = require('express'),
 
 
 var db = require('./db');
-var dudeController = require('./controllers/dude-controller')
-var photoController = require('./controllers/photo-controller')
+var showController = require('./controllers/show-controller');
+var photoController = require('./controllers/photo-controller');
 
 var app = express();
 app.use('/', express.static(__dirname + '/'));
 app.use(express.static(__dirname + dbconfig.public_path));
-// app.use(function(req, res, next){
-//     console.log("dbconfig.password:");
-//     console.log(dbconfig.auth_token);
-//     if(req.headers.password){
-//         console.log("req.headers");
-//         console.log(req.headers.password);
-//     } else {
-//         console.log("req.body");
-//         console.log(req.body);
-//     }
-//     next();
-// });
 app.use(cors());
 
 
@@ -59,24 +47,17 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 
-app.get('/', function(req, res){
-    res.send('hello...?');
-});
-app.get('/balls', function(req, res){
-    res.send('congrats, you get balls');
-});
-app.get('/something', function(req, res){
-    res.send(dudeController.doSomething());
-});
+//shows
 
 
-//dudes
-app.get('/currentDude', dudeController.getCurrentDude);
-app.get('/dude/:date/:dude', dudeController.getDude);
-app.get('/dudes', dudeController.getDudes);
-app.delete('/dude', dudeController.deleteDude);
-app.post('/dudes/new', dudeController.postDude);
-app.patch('/dudes/edit', dudeController.editDude);
+app.get('/currentShow', showController.getCurrentShow);
+app.get('/show/:urlTitle', showController.getShow);
+app.get('/shows', showController.getAll);
+app.delete('/show', showController.deleteShow);
+app.post('/shows/new', showController.createShow);
+app.patch('/dudes/edit', showController.editShow);
+
+
 //end-dudes
 
 //photos

@@ -1,16 +1,16 @@
 var View     = require('./view');
-var DudePreviewView = require('../views/dude-preview-view');
-var template = require('../templates/new-dude-template');
-var DudeModel = require('../models/dude-model');
+var ShowPreviewView = require('../views/show-preview-view');
+var template = require('../templates/new-show-template');
+var ShowModel = require('../models/show-model');
 var time = require('../helpers/dateHelper');
 var FileHelper = require('../helpers/fileHelper');
 
 module.exports = View.extend({
-    el: "#main",
+    el: "#admin_content",
     id: 'index-view',
     template: template,
     events: {
-        'submit #dudeForm' : 'submitDudeFormHandler',
+        'submit #showForm' : 'submitShowFormHandler',
     },
     afterRender: function(){
         this.setupDatePick();
@@ -28,7 +28,7 @@ module.exports = View.extend({
     },
 
     setupUploader: function(){
-        var url = BASE_URL + "/dudes/new"
+        var url = BASE_URL + "/shows/new"
 
         $('#fileupload').fileupload({
             url: url,
@@ -42,9 +42,9 @@ module.exports = View.extend({
             done: function(e, data){
                 console.log(data.result);
                 var image_path = data.result.photo;
-                var dude = data.result.dude;
+                var urlTitle = data.result.urlTitle;
                 var date = new moment(data.result.date, time.UTC_format).format(time.url_format);
-                var url = "/dudes/" + date + "/" + dude;
+                var url = "/shows/" +  urlTitle;
                 App.router.navigate(url, { trigger: true });
             },
             progressall: function(e, data){
@@ -57,28 +57,6 @@ module.exports = View.extend({
                 console.log(data);
             }
         });
-    },
-
-
-    submitDudeFormHandler: function(e){
-        e.preventDefault();
-        this.model = new DudeModel( $(e.target).serializeObject() );
-        var $form = $(e.target);
-        var fileInput = $("#photoInput");
-
-        var url = BASE_URL + "/api/photo"
-        var values = {};
-        _.each($form.serializeArray(), function(input){
-            values[ input.name ] = input.value;
-        });
-
-        this.model.save(values, {
-            iframe: true,
-            files: fileInput,
-            data: values,
-            processData: false
-        });
-
     },
 
     setupDatePick: function(){

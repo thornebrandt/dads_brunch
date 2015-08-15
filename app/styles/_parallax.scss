@@ -6,11 +6,11 @@
     min-width: 100%;
     overflow-x: hidden;
     -webkit-perspective-origin: 100%;
-
+    position: absolute;
 }
 
 .plx_layer{
-    position: absolute;
+    position: absolute !important;
     top: 0;
     bottom: 0;
     right: 0;
@@ -40,7 +40,7 @@
 }
 
 .plx_bg3{
-    transform: translateX(-150%) translateZ(-3px) scale(4);
+    transform: translateX(-155%) translateZ(-3px) scale(4);
 }
 
 .plx_bg4{

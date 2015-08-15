@@ -20,13 +20,21 @@ module.exports = View.extend({
     },
 
     afterRender: function(){
-        $("#main_container").removeClass("z500").addClass("z400");
+        console.log("rendere");
+        $("#container").scroll(function(){
+            console.log("adding class");
+        });
+    },
+
+    scrollFunction: function(){
+        console.log("Scrolling");
     },
 
     initialize: function(){
         jqueryHelper.initialize();
         browserHelper();
         this.pubSub();
+        console.log("initialize");
     },
 
     newDudeBtnHandler: function(e){

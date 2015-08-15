@@ -20,7 +20,6 @@
     -webkit-perspective-origin: 100%;
 }
 
-
 .plx_bg1{
     transform: translateX(-51%) translateZ(-1px) scale(2.1);
 }
@@ -45,4 +44,31 @@
 
 .plx_bg4{
     transform: translateX(-180%) translateZ(-4px) scale(5);
+}
+
+.firefox{
+    .plx_bg1{
+        transform: translateZ(-1px) scale(2.1);
+    }
+
+    .plx_bg1b{
+        transform: translateZ(-1.5px) scale(2.6);
+    }
+
+    .plx_bg2{
+        transform: translateZ(-2px) scale(3);
+    }
+
+
+    .plx_bg2b{
+        transform: translateZ(-2.5px) scale(3.6);
+    }
+
+    .plx_bg3{
+        transform: translateZ(-3px) scale(4);
+    }
+
+    .plx_bg4{
+        transform: translateZ(-4px) scale(5);
+    }
 }

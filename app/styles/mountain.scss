@@ -23,9 +23,29 @@ z-index: -1;
         position: absolute;
         z-index: -1;
         width: 100%;
-        margin-top: 50%;
+        margin-top: 65%;
         margin-bottom: 0px;
         top: 0px;
     }
 
+}
+
+
+#dads_logo_container{
+    display: none;
+    @include media($medium-screen-up){
+        display: block;
+        text-align: center;
+        z-index: -1;
+    }
+
+}
+
+#dads_logo{
+    text-align: center;
+    max-width: 950px;
+    width: 60%;
+    @include media($large-screen-up){
+        width: auto;
+    }
 }

@@ -68,6 +68,8 @@ $color-purple: rgba(181,141,214,1);
 $color-yellow: rgba(251,251,154,1);
 $color-orange: #cead73;
 
+$transparent_black: url("../images/transparent_black_70.png");
+
 
 
 $color-neon-green: rgba(198,233,121,1);  //Revolution Green
@@ -112,3 +114,9 @@ $form-border-color-hover: darken($base-border-color, 10);
 $form-border-color-focus: $base-accent-color;
 $form-border-radius: 4px;
 $form-font-size: $fontSize-base;
+
+
+//bg
+$plx_bg: 100%;
+$plx_bg_big: 100%;
+

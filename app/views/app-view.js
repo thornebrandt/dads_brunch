@@ -1,5 +1,5 @@
 var View     = require('./view')
-  , template = require('../templates/app-template')
+  , template = require('../templates/minimal-template')
   , jqueryHelper = require('../helpers/jqueryHelper')
   , browserHelper = require('../helpers/browserHelper')
 
@@ -7,10 +7,12 @@ module.exports = View.extend({
     el: "body",
     id: 'app-view',
     template: template,
+    mobileMenu: false,
     events: {
         "click #newDudeBtn" : "newDudeBtnHandler",
         "click #allDudesBtn" : "allDudesBtnHandler",
-        "click #homeBtn" : "homeBtnHandler",
+        "click #mobile_logo" : "mobileLogoHandler",
+        "click #mobile_menu_btn": "mobileMenuBtnHandler"
     },
 
     getRenderData: function(){
@@ -62,11 +64,6 @@ module.exports = View.extend({
         App.router.navigate("dudes", { trigger: true });
     },
 
-    homeBtnHandler: function(e){
-        e.preventDefault();
-        App.router.navigate("/", { trigger: true });
-    },
-
     pubSub: function(){
         var self = this;
         this.listenTo(Backbone, "Unauthorized", self.unauthorizedHandler);
@@ -75,6 +72,22 @@ module.exports = View.extend({
     unauthorizedHandler: function(){
         App.error("You are not authorized to edit documents.");
         App.router.navigate("/", { trigger: true });
-    }
+    },
+
+
+    mobileLogoHandler: function(e){
+        e.preventDefault();
+        App.router.navigate("/", { trigger: true });
+    },
+
+    mobileMenuBtnHandler: function(e){
+        e.preventDefault();
+        this.mobileMenu = !this.mobileMenu;
+        if(this.mobileMenu){
+            $("#menu").slideDown();
+        } else {
+            $("#menu").slideUp();
+        }
+    },
 
 })

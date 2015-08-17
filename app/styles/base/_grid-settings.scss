@@ -17,6 +17,7 @@ $tall-screen: em(51);
 
 
 $small-screen-down: new-breakpoint(max-width $small-screen);
+$small-screen-up: new-breakpoint(min-width $small-screen);
 $vertical-tablet-down: new-breakpoint(max-width $vertical-tablet - 1);
 $vertical-tablet-up: new-breakpoint(min-width $vertical-tablet);
 $medium-screen-up: new-breakpoint(min-width $medium-screen);

@@ -7,7 +7,7 @@ var PhotoCollection = require('../collections/photo-collection')
 var PhotoPreviewView = require('../views/photo-preview-view');
 
 module.exports = View.extend({
-    el: "#main_container",
+    el: "#main",
     id: 'index-view',
     template: template,
     afterRender: function(){

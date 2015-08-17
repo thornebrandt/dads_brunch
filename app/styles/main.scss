@@ -5,6 +5,8 @@
 
 @import "parallax";
 @import "admin";
+@import "terrain";
+@import "mountain";
 
 
 body{
@@ -36,19 +38,6 @@ h1{
     }
 }
 
-
-// #bg{
-//     position: absolute;
-//     top: 0px;
-//     left: 0px;
-//     width: 100%;
-//     height: auto;
-//     display: block;
-//     backgound-color: black;
-//     background-image: url("../images/bg_gradient_stripes.png");
-//     background-repeat: repeat-x;
-//     z-index: -1;
-// }
 
 #container{
     background-image: url("../images/bg_gradient_stripes.png");
@@ -112,6 +101,7 @@ h1{
 
 #main_container{
     position: relative;
+    min-height: 100%;
     display: block;
     @include media($medium-screen-up){
         margin-top: 50%;
@@ -124,8 +114,10 @@ h1{
 #main{
     margin: 6px;
     position: relative;
+    border-radius: 3px;
     background: $transparent_black;
     padding: 30px;
+    padding-bottom: 60px;
     img{
         max-width: 100%;
     }
@@ -139,97 +131,11 @@ h1{
     }
 }
 
-
-#dads_logo_container{
-    text-align: center;
-    margin-top: 300px;
-}
-
-#dads_logo{
-    text-align: center;
-    max-width: 950px;
-    width: 60%;
-    @include media($large-screen-up){
-        width: auto;
-    }
-
-
-}
-#terrain1_container{
-    top: 70%;
-    overflow: visible;
-}
-
-#terrain1{
-    background: url("../images/terrain1.png") no-repeat;
-    background-size: $plx_bg;
-    width: 100%;
-    height: 100%;
-
-    @include media($medium-screen-up){
-        background-size: $plx_bg_big;
-    }
-
-}
-
-#terrain2_container{
-    top: 72%;
-    overflow: visible;
-}
-
-#terrain2{
-    background: url("../images/terrain2.png") no-repeat;
-    background-size: $plx_bg;
-    width: 100%;
-    height: 50%;
-    height: 106%;
-    background-size: $plx_bg_big;
-
-}
-
-#terrain_black_container{
-    top: 1900px;
-    min-height: 100%;
-    overflow: visible;
-}
-
-
-#terrain_black{
-    background: url("../images/terrain_red.png") no-repeat;
-    z-index: 10;
-    background-size: 100%;
-    height: 900px;
-    width: 100%;
-    position: fixed !important;
-    bottom: -200px;
-    left: 0px;
-    pointer-events: none;
-}
-
-
 .contact_info{
     font-family: "Helvetica", sans-serif;
     text-align: center;
 }
 
-
-.dudePreview{
-    text-decoration: none;
-    display:block;
-    border: black solid 1px;
-    width: 200px;
-    background: gray;
-    margin: 10px;
-    color: white;
-    padding: 10px;
-    &:hover{
-        color: pink;
-    }
-    .dudePreviewThumb{
-        height: 50px;
-        float: right;
-    }
-}
 
 #thumbPreview, .thumb{
     width: 100px;
@@ -238,38 +144,6 @@ h1{
 .form-sep{
     margin-top: 60px;
     margin-bottom: 60px;
-}
-
-
-#bottomContentContainer{
-    width: 300px;
-    height: 300px;
-    display: block;
-    position: absolute;
-    bottom: -20px;
-    overflow: hidden;
-    left: 100px;
-    z-index: 999;
-    pointer-events: none;
-}
-
-
-#dogHead{
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    display: block;
-    background: url("../images/dog_head2.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    top: 300px;
-}
-
-
-#dude-photo, .dude-photo{
-width: 400px;
-border: gray solid 1px;
-text-align: center;
 }
 
 
@@ -282,17 +156,20 @@ text-align: center;
 
 
 #footer{
-    position: fixed;
+    position: absolute;
     bottom: 0px;
     padding: 10px;
-    font-size: 12px;
-    background: #292725;
-    color: $color-orange;
+    font-size: 14px;
+    color: white;
     display: block;
+    width: 100%;
     font-weight: bold;
     z-index: 100;
     b{
         display: none;
+    }
+    span{
+        display: block;
     }
 }
 

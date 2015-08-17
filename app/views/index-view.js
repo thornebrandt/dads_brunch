@@ -5,7 +5,7 @@ var ShowCollection = require('../collections/dude-collection');
 
 
 module.exports = View.extend({
-    el: "#main_container",
+    el: "#main",
     id: 'index-view',
     template: template,
     afterRender: function(){

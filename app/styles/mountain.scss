@@ -15,3 +15,17 @@ z-index: -1;
     top: 0px;
 }
 }
+
+#mountain2{
+    display: none;
+    @include media($medium-screen-up){
+        display: block;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        margin-top: 50%;
+        margin-bottom: 0px;
+        top: 0px;
+    }
+
+}

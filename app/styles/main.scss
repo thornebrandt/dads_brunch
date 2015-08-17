@@ -16,6 +16,9 @@ body{
     background: black;
     position: relative;
     height: 100%;
+    @include media($medium-screen-up){
+        overflow: hidden;
+    }
 }
 
 
@@ -26,7 +29,25 @@ body{
     overflow: hidden;
     position: relative;
     z-index: 1;
+    @include media($medium-screen-up){
+        background: black;
+        position: fixed;
+        overflow-y: auto;
+    }
 }
+
+#bg{
+    display: none;
+    @include media($medium-screen-up){
+        display: block;
+        background-image: url("../images/bg_gradient_stripes.png");
+        background-repeat: repeat-x;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+}
+
 
 
 
@@ -60,6 +81,7 @@ body{
             font-size: 4em;
         }
     }
+    z-index: 50;
 }
 
 #mobile_menu_btn{
@@ -116,12 +138,14 @@ body{
 }
 
 
-
 #main_container{
     position: relative;
     min-height: 100%;
     display: block;
     z-index: 1;
+    @include media($medium-screen-up){
+        margin-top: 40%;
+    }
 }
 
 #main{
@@ -140,12 +164,14 @@ body{
         border-radius: 10px;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 20px;
     }
 
     @include media($medium-screen-up){
         width: 80%;
         height: auto;
         border-radius: 30px;
+
         &.visible{
             margin-top:  -30%;
         }
@@ -153,8 +179,15 @@ body{
 }
 
 .contact_info{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    bottom: 20px;
+    left: 0px;
+    width: 100%;
     font-family: "Helvetica", sans-serif;
     text-align: center;
+    z-index: 2;
 }
 
 
@@ -177,7 +210,7 @@ body{
 
 
 #footer{
-    position: absolute;
+    position: relative;
     bottom: 0px;
     padding: 10px;
     padding-bottom: 15px;
@@ -200,6 +233,11 @@ body{
             display: inline-block;
         }
     }
+
+    @include media($medium-screen-up){
+        margin-top: 42%;
+    }
+
 }
 
 

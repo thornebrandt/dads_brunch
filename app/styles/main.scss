@@ -164,9 +164,11 @@ body{
 
 #main{
     margin: 6px;
+    border: black solid 1px;
     position: relative;
-    border-radius: 3px;
     background: $transparent_black;
+    background: white;
+    background: #5B727F;
     padding: 10px;
     img{
         max-width: 100%;
@@ -175,16 +177,15 @@ body{
     @include media($tablet-up){
         width: 90%;
         padding: 30px;
-        border-radius: 10px;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 20px;
     }
 
     @include media($medium-screen-up){
+        //background: $transparent_black;
         width: 80%;
         height: auto;
-        border-radius: 30px;
     }
 }
 

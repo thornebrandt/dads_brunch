@@ -1,11 +1,11 @@
 <div id="show_container">
     {{#if title}}
         <img id="mainShowPhoto" src="{{photo}}">
-        <h2>{{title}}</h2>
+        <h2 class="title">{{title}}</h2>
         <p id="showSummary">{{summary}}</span>
         <p class="showDate">{{showDate}}</p>
         <div id="showDescription">
-            {{description}}
+            {{{description}}}
         </div>
     {{ else }}
         <h2>Not found</h2>

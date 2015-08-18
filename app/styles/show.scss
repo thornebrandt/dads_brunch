@@ -4,24 +4,8 @@
 @import "base/base";
 
 #show_container{
-    color: $color-orange;
+    color: $show-copy;
     text-align: center;
-
-    #currentShowTitle{
-        margin: 0px;
-        text-transform: uppercase;
-        font-weight: 400;
-        @include media($small-screen-up){
-            font-size: 2em;
-        }
-        @include media($tablet-up){
-            font-size: 3em;
-        }
-        @include media($medium-screen-up){
-            font-size: 5em;
-        }
-    }
-
     .showDate{
         margin: 0px;
 
@@ -34,6 +18,25 @@
         }
     }
 }
+
+
+.title{
+    margin: 0px;
+    color: $show-copy;
+    text-transform: uppercase;
+    font-weight: 400;
+    @include media($small-screen-up){
+        font-size: 2em;
+    }
+    @include media($tablet-up){
+        font-size: 3em;
+    }
+    @include media($medium-screen-up){
+        font-weight: 200;
+        font-size: 4em;
+    }
+}
+
 
 
 
@@ -58,4 +61,11 @@
         margin-top: -10px;
         font-size: 3em;
     }
+}
+
+#showDescription{
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
 }

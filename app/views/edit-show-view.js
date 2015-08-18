@@ -259,8 +259,7 @@ module.exports = View.extend({
 
     navigateToShow: function(_model){
         var showModel = new ShowModel(_model);
-        showModel.formatDate();
-        var url = "/shows/" + showModel.get("URLdate") + "/" + showModel.get("show");
+        var url = "/shows/" + showModel.get("urlTitle");
         App.router.navigate(url, { trigger: true });
     },
 

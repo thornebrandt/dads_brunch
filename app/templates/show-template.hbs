@@ -1,9 +1,9 @@
 <div id="show_container">
     {{#if title}}
         <img id="mainShowPhoto" src="{{photo}}">
-        <h2 class="title">{{title}}</h2>
-        <p id="showSummary">{{summary}}</span>
-        <p class="showDate">{{showDate}}</p>
+        <h2 class="title">{{{title}}}</h2>
+        <p id="showSummary">{{{summary}}}</span>
+        <p class="showDate">{{showDate}}<br>{{{timeInfo}}}</p>
         <div id="showDescription">
             {{{description}}}
         </div>
@@ -11,7 +11,6 @@
         <h2>Not found</h2>
     {{/if}}
     <div id="showPhotos">
-        sub-photos
     </div>
     {{#if authorized}}
         <p>

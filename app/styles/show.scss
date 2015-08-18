@@ -59,13 +59,30 @@
 
     @include media($medium-screen-up){
         margin-top: -10px;
-        font-size: 3em;
+        font-size: 2em;
     }
 }
 
 #showDescription{
     text-align: left;
-    margin-top: 20px;
+    margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
+    line-height: 1.5em;
+}
+
+
+#mainShowPhoto, .showPhoto{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+.showPhotoContainer{
+    width: 100%;
+}
+
+.showPhoto{
+    display: block;
+    width: 100%;
 }

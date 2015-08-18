@@ -9,7 +9,7 @@ var showSchema = new mongoose.Schema({
     date: Date,
     summary: String,
     description: String,
-    time_info: String,
+    timeInfo: String,
     photo: String,
     thumb: String,
     created_at: Date,

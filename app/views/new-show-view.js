@@ -1,5 +1,4 @@
 var View     = require('./view');
-var ShowPreviewView = require('../views/show-preview-view');
 var template = require('../templates/new-show-template');
 var ShowModel = require('../models/show-model');
 var time = require('../helpers/dateHelper');

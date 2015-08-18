@@ -1,5 +1,4 @@
 var View     = require('./view');
-var ShowPreviewView = require('../views/show-preview-view');
 var template = require('../templates/show-template');
 var ShowModel = require('../models/show-model');
 var time = require('../helpers/dateHelper');
@@ -24,9 +23,12 @@ module.exports = View.extend({
         var _id = this.model.get("_id");
         this.photoCollection = new PhotoCollection();
         var self = this;
+        console.log("fetcing photos:" + _id);
         this.photoCollection.fetch({
             url: BASE_URL + "/photos/" + _id,
             success: function(data){
+                console.log("got photos");
+                console.log(data);
                 self.renderPhotos();
             },
             error: function(collection, response){
@@ -52,7 +54,6 @@ module.exports = View.extend({
         this.model.fetch({
             url: url,
             success: function(data, textStatus, options){
-                console.log(data);
                 self.model.formatDate();
                 self.render();
             },

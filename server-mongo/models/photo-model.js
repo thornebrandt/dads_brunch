@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
 var currentDate = new Date();
 
 var photoSchema = new mongoose.Schema({
-    dude_id: String,
+    show_id: String,
     caption: String,
     photo: String,
     thumb: String,

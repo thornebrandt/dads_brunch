@@ -10,7 +10,7 @@ var PhotoModel = require('../models/photo-model.js');
 
 var self = {
     getPhotos: function(req, res){
-        var _query = DudeModel.find().sort( { updated_at: -1 });
+        var _query = PhotoModel.find().sort( { updated_at: -1 });
         _query.exec(function(err, dudes){
             if(!err){
                 res.json(dudes);
@@ -21,11 +21,13 @@ var self = {
     },
 
 
-    getPhotosByDude: function(req, res){
-        var dude_id = req.params.dude_id;
-        var query = PhotoModel.find({dude_id : dude_id }).sort( { updated_at: 1 })
+    getPhotosByShow: function(req, res){
+        var show_id = req.params.show_id;
+        console.log("show_id: " + show_id);
+        var query = PhotoModel.find({show_id : show_id }).sort( { updated_at: 1 })
         query.exec(function(err, photos){
             if(!err){
+                console.log(photos);
                 res.json(photos);
             } else {
                 handleError(err);

@@ -6,16 +6,15 @@
     }
 
     &.admin{
-        background-color: gray;
+        background-color: #5B727F;
         min-height: 100%;
         padding: 10px;
         font-size: 18px;
 
         a{
             text-decoration:none;
-            color: black;
             &:hover{
-                text-decoration: underline;
+                color: gray;
             }
 
         }
@@ -40,4 +39,11 @@ font-size: 18px;
 
 #descriptionInput{
     min-height: 300px;
+}
+
+#showForm{
+    padding: 20px;
+    input, textarea{
+        max-width: 800px;
+    }
 }

@@ -7,9 +7,9 @@
 <hr>
 
 <form id="showForm" enctype="multipart/form-data">
-    Title: <input type="text" name="dude" id="dudeInput" value="{{title}}" required/>
+    Title: <input type="text" name="title" id="dudeInput" value="{{title}}" required/>
     <br>
-    Summary: <input type="text" name="greeting" id="greetingInput" value="{{summary}}" required />
+    Summary: <input type="text" name="summary" id="greetingInput" value="{{summary}}" required />
     <br>
     <div id="inlineDatePicker"></div>
     <input type="hidden" name="date" id="dateInput" value={{URLdate}} />
@@ -53,11 +53,11 @@
 <p>
 
     <h2>Add Photo</h2>
-    <form id="newDudePhotoForm" enctype="multipart/form-data">
-        <br><input id="dudePhotoInput" class="fileupload" type="file" name="photo" />
+    <form id="newShowPhotoForm" enctype="multipart/form-data">
+        <br><input id="showPhotoInput" class="fileupload" type="file" name="photo" />
         <br>
-        <div id="displayDudePhoto">
-            <img id="dudePhotoPreview" src="/images/placeholder.jpg" width="300">
+        <div id="displayShowPhoto">
+            <img id="showPhotoPreview" src="/images/placeholder.jpg" width="300">
         </div>
         Caption: <input type="text" name="caption">
         <br>
@@ -68,6 +68,6 @@
 
 
 <p>
-    <a href="#" id="deleteDudeBtn">DELETE DUDE</a>
+    <a href="#" id="deleteDudeBtn">DELETE SHOW</a>
 </p>
 

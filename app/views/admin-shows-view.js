@@ -10,17 +10,19 @@ module.exports = View.extend({
     afterRender: function(){
         this.setupDudeCollection();
     },
+
     getRenderData: function(){
         this.viewModel = {
             h2: "hey bro"
         }
         return this.viewModel;
     },
+
     setupDudeCollection: function(){
         this.dudeCollection = new DudeCollection();
         var self = this;
         this.dudeCollection.fetch({
-            url: BASE_URL + "/dudes",
+            url: BASE_URL + "/shows",
             success: function(data){
                 self.renderDudeCollection();
             },

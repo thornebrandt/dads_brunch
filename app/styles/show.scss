@@ -1,0 +1,51 @@
+@import "bourbon/bourbon";
+@import "base/grid-settings";
+@import "neat/neat";
+@import "base/base";
+
+#show_container{
+    color: $color-orange;
+    text-align: center;
+
+    h2{
+        margin: 0px;
+        text-transform: uppercase;
+        font-weight: 400;
+        @include media($small-screen-up){
+            font-size: 2em;
+        }
+        @include media($tablet-up){
+            font-size: 3em;
+        }
+        @include media($medium-screen-up){
+            font-size: 5em;
+        }
+    }
+
+    .showDate{
+        margin: 0px;
+
+        @include media($tablet-up){
+            font-size: 2em;
+        }
+
+        @include media($medium-screen-up){
+            font-size: 2em;
+        }
+    }
+}
+
+#showSummary{
+    margin: 0px;
+    padding: 0px;
+
+    @include media($tablet-up){
+        margin-top: -5px;
+        font-size: 2em;
+    }
+
+    @include media($medium-screen-up){
+        margin-top: -10px;
+        font-size: 3em;
+    }
+}

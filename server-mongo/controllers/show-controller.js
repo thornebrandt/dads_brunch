@@ -31,11 +31,11 @@ var self = {
     },
 
     getCurrentShow: function(req, res){
-        var _query = ShowModel.find({ date: { $gte: new Date() }}).sort( { date: 1 }).limit(1);
-        _query.exec(function(err, models){
+        var _query = ShowModel.findOne({ date: { $gte: new Date() }}).sort( { date: 1 });
+        _query.exec(function(err, model){
             if(!err){
-                if(models.length > 0){
-                    res.json(models);
+                if(model){
+                    res.json(model);
                 } else {
                     self.getPastShow(req, res);
                 }
@@ -67,10 +67,12 @@ var self = {
     },
 
     getPastShow: function(req, res){
-        var _query = ShowModel.find({ date: { $lt: new Date() }}).sort( { date: -1 }).limit(1);
-        _query.exec(function(err, models){
+        var _query = ShowModel.findOne({ date: { $lt: new Date() }}).sort( { date: -1 });
+        _query.exec(function(err, model){
             if(!err){
-                res.json(models);
+                if(model){
+                    res.json(model);
+                }
             } else {
                 handleError(err);
             }

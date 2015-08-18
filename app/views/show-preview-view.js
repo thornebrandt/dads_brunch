@@ -13,8 +13,7 @@ module.exports = ModelView.extend({
     goToSpecificShow: function(e){
         e.preventDefault();
         var title = $(e.currentTarget).attr("data-title");
-        var date = $(e.currentTarget).attr("data-date");
-        var url =   "/shows/" + date + "/" + title;
+        var url =   "/shows/" + title;
         App.router.navigate(url, { trigger: true });
     },
     template: template,

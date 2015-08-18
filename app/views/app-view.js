@@ -1,11 +1,12 @@
 var View     = require('./view')
-  , template = require('../templates/minimal-template')
+  , template = require('../templates/app-template')
   , jqueryHelper = require('../helpers/jqueryHelper')
   , browserHelper = require('../helpers/browserHelper')
 
 module.exports = View.extend({
     el: "body",
     id: 'app-view',
+    containerEl: "#main_container",
     template: template,
     mobileMenu: false,
     events: {
@@ -51,7 +52,6 @@ module.exports = View.extend({
         jqueryHelper.initialize();
         browserHelper();
         this.pubSub();
-        console.log("initialize");
     },
 
     newDudeBtnHandler: function(e){
@@ -89,5 +89,17 @@ module.exports = View.extend({
             $("#menu").slideUp();
         }
     },
+
+    removeIndexClass: function(){
+        $(this.containerEl).removeClass("index");
+    },
+
+    addIndexClass: function(){
+        console.log("adding index class");
+        $(this.containerEl).addClass("index");
+    },
+
+
+
 
 })

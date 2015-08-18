@@ -8,7 +8,6 @@ var PhotoPreviewView = require('../views/photo-preview-view');
 
 module.exports = View.extend({
     el: "#main",
-    id: 'index-view',
     template: template,
     afterRender: function(){
         this.fetchPhotos();

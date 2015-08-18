@@ -14,4 +14,4 @@ db.testCollection.find( { date: { $exists: false }})
 
 
 #repair mongo
-mongod --dbpath data --repair --repairpath data
+mongod --dbpath data --repair

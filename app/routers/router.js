@@ -54,6 +54,7 @@ module.exports = Backbone.Router.extend({
             App.appView = new App.Views.AppView();
             App.appView.render();
         }
+        App.appView.removeIndexClass();
         this.garbageCollection();
     },
 
@@ -67,8 +68,11 @@ module.exports = Backbone.Router.extend({
 
     index: function() {
         this.loadApp();
+        App.appView.addIndexClass();
+        console.log("loadin gindex");
         App.views.indexView = new App.Views.IndexView();
-        App.views.indexView.render();
+        //App.views.indexView.render();
+        App.views.indexView.fetchCurrentShow();
     },
 
     specificShow: function(_urlTitle){

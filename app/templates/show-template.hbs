@@ -1,24 +1,18 @@
-<div id="main" class="visible">
-    <div id="dude-container">
-        {{#if title}}
-            {{URLdate}}
-            <h2>{{title}}</h2>
-            <h3>{{summary}}</h3>
-            {{#if photo }}
-                <img id="mainShowPhoto" src="{{photo}}">
-            {{ else }}
-                no photo
-            {{/if}}
-        {{ else }}
-            <h1>Not found</h1>
-        {{/if}}
-        <div id="dudePhotos">
-            sub-photos
-        </div>
-        {{#if authorized}}
-            <p>
-                <a href="#" id="editDudeBtn">EDIT</a>
-            </p>
-        {{/if}}
+<div id="show_container">
+    {{#if title}}
+        <img id="mainShowPhoto" src="{{photo}}">
+        <h2>{{title}}</h2>
+        <p id="showSummary">{{summary}}</span>
+        <p class="showDate">{{showDate}}</p>
+    {{ else }}
+        <h2>Not found</h2>
+    {{/if}}
+    <div id="dudePhotos">
+        sub-photos
     </div>
+    {{#if authorized}}
+        <p>
+            <a href="#" id="editDudeBtn">EDIT</a>
+        </p>
+    {{/if}}
 </div>

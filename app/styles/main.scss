@@ -7,6 +7,7 @@
 @import "admin";
 @import "terrain";
 @import "mountain";
+@import "show";
 
 
 body{
@@ -84,6 +85,7 @@ body{
     z-index: 50;
 }
 
+
 #mobile_menu_btn{
     display: block;
     background: url("../images/3d_menu.png") no-repeat;
@@ -144,7 +146,10 @@ body{
     display: block;
     z-index: 1;
     @include media($medium-screen-up){
-        margin-top: 70%;
+        margin-top: 30%;
+        &.index{
+            margin-top: 70%;
+        }
     }
 }
 
@@ -171,10 +176,6 @@ body{
         width: 80%;
         height: auto;
         border-radius: 30px;
-
-        &.visible{
-            margin-top:  -30%;
-        }
     }
 }
 
@@ -239,5 +240,7 @@ body{
     }
 
 }
+
+
 
 

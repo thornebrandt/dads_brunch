@@ -8,5 +8,6 @@ module.exports = Model.extend({
         var modelDate = new moment(this.get("date"));
         this.set("formattedDate", modelDate.format(time.upcoming_format));
         this.set("URLdate", modelDate.format(time.url_format));
+        this.set("showDate", modelDate.format(time.readable_format));
     }
 });

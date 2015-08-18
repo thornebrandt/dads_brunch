@@ -1,19 +1,28 @@
-#admin{
-    background-color: gray;
-    min-height: 100%;
-    padding: 10px;
-    font-size: 18px;
 
-    a{
-        text-decoration:none;
-        color: black;
-        &:hover{
-            text-decoration: underline;
+#container{
+
+    h1{
+        text-align: center;
+    }
+
+    &.admin{
+        background-color: gray;
+        min-height: 100%;
+        padding: 10px;
+        font-size: 18px;
+
+        a{
+            text-decoration:none;
+            color: black;
+            &:hover{
+                text-decoration: underline;
+            }
+
         }
 
     }
-
 }
+
 
 
 
@@ -21,5 +30,9 @@
 width: 100%;
 padding: 10px;
 font-size: 18px;
-overflow: scroll;
+    a{
+        margin-left: 20px;
+        margin-right: 20px;
+        color: white !important;
+    }
 }

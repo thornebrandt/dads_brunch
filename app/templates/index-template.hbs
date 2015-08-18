@@ -1,5 +1,13 @@
-    <h1>We just got some content</h1>
-    <img src="images/placeholder.jpg">
+<div id="show_container">
+    {{#if title}}
+        <img id="mainShowPhoto" src="{{photo}}">
+        <h2>{{title}}</h2>
+        <p id="showSummary">{{summary}}</p>
+        <p class="showDate">{{showDate}}</p>
+    {{else}}
+        no title??
+    {{/if}}
+</div>
 
 
 

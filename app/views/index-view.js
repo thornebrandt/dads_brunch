@@ -1,32 +1,39 @@
 var View     = require('./view');
 var ShowPreviewView = require('../views/show-preview-view');
 var template = require('../templates/index-template');
-var ShowCollection = require('../collections/dude-collection');
+var showTemplate = require('../templates/show-template');
+var ShowCollection = require('../collections/show-collection');
+var ShowModel = require('../models/show-model');
 
 
 module.exports = View.extend({
     el: "#main",
+    currentShowEl: "#currentShow",
     id: 'index-view',
     template: template,
-    afterRender: function(){
-        this.setupShowCollection();
+
+    getRenderData: function(){
+        this.model.formatDate();
+        return this.model.toJSON();
     },
-    setupShowCollection: function(){
-        this.showCollection = new ShowCollection();
+
+    fetchCurrentShow: function(){
         var self = this;
-        this.showCollection.fetch({
+        this.model = new ShowModel();
+        this.model.fetch({
             url: BASE_URL + "/currentShow",
             success: function(data){
-                self.renderShowCollection();
+                self.render();
+            },
+            error: function(e){
+                console.log("something went wrong fetching this crap");
             }
         });
     },
-    renderShowCollection: function(){
-        var self = this;
-        this.showCollection.each(function(model){
-            $("#main").append("<div id='" + model.get("_id") + "'></div>");
-            var showPreviewView = new ShowPreviewView(model);
-            showPreviewView.render();
-        });
+
+    renderCurrentShow: function(){
+        console.log(this.model);
+        // $(this.currentShowEl).html( this.showTemplate( this.model.toJSON() ));
     }
+
 })

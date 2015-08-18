@@ -19,7 +19,7 @@ module.exports = Backbone.Router.extend({
         'admin/shows(/)': 'adminShows',
         'admin/shows/new(/)': 'newShow',
         'shows/:urlTitle(/)' : 'specificShow',
-        'shows/:data/:show/edit(/)' : 'editShow',
+        'admin/shows/:urlTitle/edit(/)' : 'editShow',
         'login/:password': 'loginRoute',
         'logout' : 'logoutRoute',
         '*path' : 'defaultRoute',
@@ -81,11 +81,11 @@ module.exports = Backbone.Router.extend({
         App.views.showView.fetchShow(_urlTitle);
     },
 
-    editShow: function(_date, _show){
+    editShow: function(_urlTitle){
         if(App.authorized){
             this.loadAdmin();
             App.views.editShowView = new App.Views.EditShowView();
-            App.views.editShowView.fetchShow(_date, _show);
+            App.views.editShowView.fetchShow(_urlTitle);
         } else {
             App.error("Not authorized to edit");
             this.navigate("/", { trigger: true, replace: true });

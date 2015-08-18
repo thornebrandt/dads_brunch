@@ -6,8 +6,7 @@ var time = require('../helpers/dateHelper');
 var FileHelper = require('../helpers/fileHelper');
 
 module.exports = View.extend({
-    el: "#main",
-    id: 'index-view',
+    el: "#admin_content",
     template: template,
     events: {
         'submit #showForm' : 'submitShowFormHandler',
@@ -26,8 +25,11 @@ module.exports = View.extend({
         this.setupShowPhotoPreview();
         this.setupThumbPreview();
     },
+
+
     getRenderData: function(){
         this.model.formatDate();
+        console.log(this.model.toJSON());
         return this.model.toJSON();
     },
 
@@ -135,7 +137,6 @@ module.exports = View.extend({
         var show_id = this.model.get("_id");
         var url = BASE_URL + "/photos"
         var self = this;
-        console.log("setting up show photo uploader");
         $("#showPhotoInput").fileupload({
             url: url,
             type: "POST",
@@ -213,7 +214,6 @@ module.exports = View.extend({
 
         var $form = $(e.target);
         var $fileInput = $("#fileupload");
-        console.log(this.model);
     },
 
     submitShowPhotoFormHandler: function(e){
@@ -234,12 +234,10 @@ module.exports = View.extend({
         $datePicker.datepicker('setDate', savedDate);
     },
 
-    fetchShow: function(_date, _show){
+    fetchShow: function(_urlTitle){
         var self = this;
-        this.URLdate = _date;
-        this.show = _show;
-        this.date = new moment(this.URLdate, time.url_format).format(time.UTC_format);
-        var url = BASE_URL + "/show/" + this.date + "/" + this.show;
+        this.urlTitle = _urlTitle;
+        var url = BASE_URL + "/show/" + this.urlTitle;
         this.model = new ShowModel();
         this.model.fetch({
             url: url,

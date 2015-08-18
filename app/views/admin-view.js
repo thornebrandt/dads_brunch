@@ -18,7 +18,6 @@ module.exports = View.extend({
 
     initialize: function(){
         jqueryHelper.initialize();
-        console.log("initialize");
     },
 
     newShowBtnHandler: function(e){

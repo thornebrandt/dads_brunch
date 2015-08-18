@@ -55,7 +55,7 @@ app.get('/show/:urlTitle', showController.getShow);
 app.get('/shows', showController.getAll);
 app.delete('/show', showController.deleteShow);
 app.post('/shows/new', showController.createShow);
-app.patch('/dudes/edit', showController.editShow);
+app.patch('/shows/edit', showController.editShow);
 
 
 //end-dudes

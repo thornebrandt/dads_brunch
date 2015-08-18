@@ -47,9 +47,6 @@ var self = {
 
     getShow: function(req, res){
         var urlTitle = req.params.urlTitle;
-        console.log("url title");
-        console.log(urlTitle);
-
         var query = ShowModel.findOne({
             urlTitle: {
                 $eq: urlTitle
@@ -57,8 +54,6 @@ var self = {
         });
         query.exec(function(err, show){
             if(!err){
-                console.log("what is the show");
-                console.log(show);
                 res.json(show);
             } else {
                 return handleError(err);

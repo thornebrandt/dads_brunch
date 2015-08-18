@@ -27,7 +27,6 @@ module.exports = View.extend({
         this.photoCollection.fetch({
             url: BASE_URL + "/photos/" + _id,
             success: function(data){
-                console.log(data);
                 self.renderPhotos();
             },
             error: function(collection, response){
@@ -53,6 +52,7 @@ module.exports = View.extend({
         this.model.fetch({
             url: url,
             success: function(data, textStatus, options){
+                console.log(data);
                 self.model.formatDate();
                 self.render();
             },
@@ -70,7 +70,7 @@ module.exports = View.extend({
 
     clickEditShowHandler: function(e){
         e.preventDefault();
-        var url = "/shows/" + this.URLdate + "/" + this.show  + "/edit"
+        var url = "admin/shows/" + this.urlTitle + "/edit"
         App.router.navigate(url, { trigger: true });
     },
 

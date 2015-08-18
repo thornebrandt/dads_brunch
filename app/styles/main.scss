@@ -20,6 +20,15 @@ body{
     @include media($medium-screen-up){
         overflow: hidden;
     }
+
+    a{
+        color: $color-orange;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+
 }
 
 
@@ -179,18 +188,6 @@ body{
     }
 }
 
-.contact_info{
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    bottom: 20px;
-    left: 0px;
-    width: 100%;
-    font-family: "Helvetica", sans-serif;
-    text-align: center;
-    z-index: 2;
-}
-
 
 #thumbPreview, .thumb{
     width: 100px;
@@ -199,14 +196,6 @@ body{
 .form-sep{
     margin-top: 60px;
     margin-bottom: 60px;
-}
-
-
-#mainShowPhoto{
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
 }
 
 
@@ -236,11 +225,34 @@ body{
     }
 
     @include media($medium-screen-up){
-        margin-top: 42%;
+        margin-top: 22%;
+        height: 65%;
     }
+
+
+    .contact_info{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        bottom: 20px;
+        width: 100%;
+        font-family: "Helvetica", sans-serif;
+        text-align: center;
+        z-index: 2;
+        position: relative;
+
+        @include media($medium-screen-up){
+            position: absolute;
+            bottom: 15px;
+            left: 0px;
+        }
+
+    }
+
 
 }
 
 
-
-
+.home_logo{
+    cursor: pointer;
+}

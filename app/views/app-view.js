@@ -12,8 +12,8 @@ module.exports = View.extend({
     events: {
         "click #newDudeBtn" : "newDudeBtnHandler",
         "click #allDudesBtn" : "allDudesBtnHandler",
-        "click #mobile_logo" : "mobileLogoHandler",
-        "click #mobile_menu_btn": "mobileMenuBtnHandler"
+        "click #mobile_menu_btn": "mobileMenuBtnHandler",
+        "click .home_logo" : "homeLogoHandler"
     },
 
     getRenderData: function(){
@@ -75,7 +75,7 @@ module.exports = View.extend({
     },
 
 
-    mobileLogoHandler: function(e){
+    homeLogoHandler: function(e){
         e.preventDefault();
         App.router.navigate("/", { trigger: true });
     },
@@ -91,12 +91,11 @@ module.exports = View.extend({
     },
 
     removeIndexClass: function(){
-        $(this.containerEl).removeClass("index");
+        //$(this.containerEl).removeClass("index");
     },
 
     addIndexClass: function(){
-        console.log("adding index class");
-        $(this.containerEl).addClass("index");
+        //$(this.containerEl).addClass("index");
     },
 
 

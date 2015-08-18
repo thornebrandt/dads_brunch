@@ -7,7 +7,7 @@
     color: $color-orange;
     text-align: center;
 
-    h2{
+    #currentShowTitle{
         margin: 0px;
         text-transform: uppercase;
         font-weight: 400;
@@ -34,6 +34,16 @@
         }
     }
 }
+
+
+
+#currentShowPhoto{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
 
 #showSummary{
     margin: 0px;

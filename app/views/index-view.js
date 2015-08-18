@@ -8,6 +8,9 @@ var ShowModel = require('../models/show-model');
 
 module.exports = View.extend({
     el: "#main",
+    events: {
+        "click .currentShow" : "goToCurrentShow",
+    },
     currentShowEl: "#currentShow",
     id: 'index-view',
     template: template,
@@ -34,6 +37,13 @@ module.exports = View.extend({
     renderCurrentShow: function(){
         console.log(this.model);
         // $(this.currentShowEl).html( this.showTemplate( this.model.toJSON() ));
+    },
+
+    goToCurrentShow: function(e){
+        e.preventDefault();
+        var urlTitle = $(e.currentTarget).attr("data-title");
+        var url = "/shows/" + urlTitle;
+        App.router.navigate(url, { trigger: true });
     }
 
 })

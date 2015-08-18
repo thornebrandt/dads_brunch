@@ -3,19 +3,6 @@
 @import "neat/neat";
 @import "base/base";
 
-#dads_logo_container{
-    text-align: center;
-    margin-top: 300px;
-}
-
-#dads_logo{
-    text-align: center;
-    max-width: 950px;
-    width: 60%;
-    @include media($large-screen-up){
-        width: auto;
-    }
-}
 
 #terrain1_container{
     top: 70%;

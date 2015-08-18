@@ -11,3 +11,7 @@ npm start
 
 #to find non-existent values
 db.testCollection.find( { date: { $exists: false }})
+
+
+#repair mongo
+mongod --dbpath data --repair --repairpath data

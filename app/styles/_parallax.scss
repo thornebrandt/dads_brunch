@@ -62,45 +62,48 @@
 
 .plx_bg3{
     @include media($medium-screen-up){
-        transform: translateX(-155%) translateZ(-3px) scale(4);
-        -webkit-transform: translateX(-155%) translateZ(-3px) scale(4);
-        -o-transform: translateX(-155%) translateZ(-3px) scale(4);
+        transform: translateX(-153%) translateZ(-3px) scale(4.1);
+        -webkit-transform: translateX(-153%) translateZ(-3px) scale(4.1);
+        -o-transform: translateX(-153%) translateZ(-3px) scale(4.1);
     }
 
 }
 
 .plx_bg4{
     @include media($medium-screen-up){
-        transform: translateX(-180%) translateZ(-4px) scale(5);
-        -webkit-transform: translateX(-180%) translateZ(-4px) scale(5);
-        -o-transform: translateX(-180%) translateZ(-4px) scale(5);
+        transform: translateX(-205%) translateZ(-4px) scale(5);
+        -webkit-transform: translateX(-205%) translateZ(-4px) scale(5);
+        -o-transform: translateX(-205%) translateZ(-4px) scale(5);
     }
 }
 
 .firefox{
-    .plx_bg1{
-        transform: translateZ(-1px) scale(2.1);
-    }
+    @include media($medium-screen-up){
 
-    .plx_bg1b{
-        transform: translateZ(-1.5px) scale(2.6);
-    }
+        .plx_bg1{
+            transform: translateZ(-1px) scale(2.1);
+        }
 
-    .plx_bg2{
-        transform: translateZ(-2px) scale(3);
-    }
+        .plx_bg1b{
+            transform: translateZ(-1.5px) scale(2.6);
+        }
+
+        .plx_bg2{
+            transform: translateZ(-2px) scale(3);
+        }
 
 
-    .plx_bg2b{
-        transform: translateZ(-2.5px) scale(3.6);
-    }
+        .plx_bg2b{
+            transform: translateZ(-2.5px) scale(3.6);
+        }
 
-    .plx_bg3{
-        transform: translateZ(-3px) scale(4);
-    }
+        .plx_bg3{
+            transform: translateZ(-3px) scale(4);
+        }
 
-    .plx_bg4{
-        transform: translateZ(-4px) scale(5);
+        .plx_bg4{
+            transform: translateZ(-4px) scale(5);
+        }
     }
 }
 

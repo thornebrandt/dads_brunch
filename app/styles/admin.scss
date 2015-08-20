@@ -1,9 +1,3 @@
-@import "bourbon/bourbon";
-@import "base/grid-settings";
-@import "neat/neat";
-@import "base/base";
-
-
 
 #container{
 
@@ -49,19 +43,7 @@ font-size: 18px;
 
 #showForm{
     padding: 20px;
-    margin-bottom: 100px;
     input, textarea{
         max-width: 800px;
     }
-}
-
-#newShowPhotoFormContainer{
-    padding: 20px;
-    border: white solid 1px;
-    background: $show-bg2;
-}
-
-
-.showPreviewThumb{
-    width: 100px;
 }

@@ -11,6 +11,7 @@
 
 
 body{
+    color: white;
     font-family: "mostra-nuova",sans-serif !important;
     max-width: 100%;
     background: black;
@@ -28,18 +29,7 @@ body{
         }
     }
 
-    button{
-        font-family: "Helvetica" !important;
-    }
-
-    input.btn{
-        font-family: "mostra-nuova" !important;
-        background: red !important;
-    }
-
 }
-
-
 
 
 #container{
@@ -177,6 +167,8 @@ body{
     border: black solid 1px;
     position: relative;
     background: $transparent_black;
+    background: white;
+    background: $show-bg;
     padding: 10px;
     margin-bottom: 20px;
     img{
@@ -191,7 +183,7 @@ body{
     }
 
     @include media($medium-screen-up){
-        background: $show-bg;
+        //background: $transparent_black;
         width: 80%;
         height: auto;
     }
@@ -236,10 +228,6 @@ body{
     @include media($medium-screen-up){
         margin-top: 22%;
         height: 65%;
-        &.largeHeight{
-            margin-top: 20px;
-            height: auto;
-        }
     }
 
 

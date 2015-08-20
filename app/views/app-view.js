@@ -14,6 +14,7 @@ module.exports = View.extend({
         "click #allDudesBtn" : "allDudesBtnHandler",
         "click #mobile_menu_btn": "mobileMenuBtnHandler",
         "click #adminBtn" : "adminBtnHandler",
+        "click #calendarBtn" : "calendarBtnHandler",
         "click .home_logo" : "homeLogoHandler"
     },
 
@@ -90,6 +91,12 @@ module.exports = View.extend({
             $("#menu").slideUp();
         }
     },
+
+    calendarBtnHandler: function(e){
+        e.preventDefault();
+        App.router.navigate("/calendar", { trigger: true });
+    },
+
 
     adminBtnHandler: function(e){
         e.preventDefault();

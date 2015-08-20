@@ -2,11 +2,12 @@ var App = require('application');
 
 module.exports = Backbone.Router.extend({
     initialize: function(){
+        App.Views.IndexView = require('../views/index-view');
+        App.Views.ShowView = require('../views/show-view');
+        App.Views.CalendarView = require('../views/calendar-view');
         App.Views.AppView = require('../views/app-view');
         App.Views.AdminView = require('../views/admin-view');
-        App.Views.IndexView = require('../views/index-view');
         App.Views.AdminShowsView = require('../views/admin-shows-view');
-        App.Views.ShowView = require('../views/show-view');
         App.Views.NewShowView = require('../views/new-show-view');
         App.Views.EditShowView = require('../views/edit-show-view');
         this.setupAjax();
@@ -15,10 +16,12 @@ module.exports = Backbone.Router.extend({
 
     routes: {
         '': 'index',
+        'shows/:urlTitle(/)' : 'specificShow',
+        'calendar(/)' : 'calendar',
+        'shows(/)' : 'calendar',
         'admin(/)' : 'adminShows',
         'admin/shows(/)': 'adminShows',
         'admin/shows/new(/)': 'newShow',
-        'shows/:urlTitle(/)' : 'specificShow',
         'admin/shows/:urlTitle/edit(/)' : 'editShow',
         'login/:password': 'loginRoute',
         'logout' : 'logoutRoute',
@@ -66,10 +69,16 @@ module.exports = Backbone.Router.extend({
         }
     },
 
+    calendar: function(){
+        this.loadApp();
+        console.log("getting calendar view");
+        App.views.calendarView = new App.Views.CalendarView();
+        App.views.calendarView.fetchShows();
+    },
+
     index: function() {
         this.loadApp();
         App.appView.addIndexClass();
-        console.log("loadin gindex");
         App.views.indexView = new App.Views.IndexView();
         //App.views.indexView.render();
         App.views.indexView.fetchCurrentShow();

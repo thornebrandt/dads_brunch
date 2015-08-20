@@ -13,8 +13,29 @@ App = {
         }
     },
     error: function(_string){
+        var $dialog = $("#dialogError");
         $("#dialogErrorContent").html(_string);
-        $("#dialogError").dialog();
+        $dialog.attr("title", "Error, Yo.");
+        $dialog.dialog();
+    },
+
+    prompt: function(_string, _callback){
+        var $dialog = $("#dialogError");
+        $("#dialogErrorContent").html(_string);
+        var buttons = {
+            "No" : function(){
+                    $(this).dialog("close");
+            },
+            "Yes" : _callback
+        }
+        $dialog.dialog({
+            buttons: buttons
+        });
+    },
+
+    closeDialog: function(){
+        var $dialog = $("#dialogError");
+        $dialog.dialog("close");
     }
 }
 

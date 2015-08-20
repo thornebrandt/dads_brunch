@@ -166,33 +166,34 @@ module.exports = View.extend({
 
     deleteShowHandler: function(e){
         e.preventDefault();
-        var url = BASE_URL + "/show";
-        $("#dialogError").dialog({
-            buttons: {
-                "No": function(){
-                    $(this).dialog("close");
-                }
-            }
+        var self = this;
+        console.log("wait what");
+        App.prompt("Are you sure you want to do this?", function(){
+            App.closeDialog();
+            self.deleteShow();
+            //App.closeDialog();
         });
-
-
-        // this.model.save(
-        //     this.model.toJSON(),
-        //     {
-        //         url: url,
-        //         type: 'DELETE'
-        //     }
-        // ).then(
-        //     function success(data){
-        //         App.router.navigate("admin/shows", { trigger: true });
-        //     },
-        //     function error(e){
-        //         console.log("error deleting");
-        //         console.log(e.responseText);
-        //     }
-        // );
-
     },
+
+    deleteShow: function(){
+        var url = BASE_URL + "/show";
+        this.model.save(
+            this.model.toJSON(),
+            {
+                url: url,
+                type: 'DELETE'
+            }
+        ).then(
+            function success(data){
+                App.router.navigate("admin/shows", { trigger: true });
+            },
+            function error(e){
+                console.log("error deleting");
+                console.log(e.responseText);
+            }
+        );
+    },
+
 
     submitShowFormHandler: function(e){
         e.preventDefault();

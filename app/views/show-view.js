@@ -38,13 +38,28 @@ module.exports = View.extend({
     },
 
     renderPhotos: function(){
+        var self = this;
         this.photoCollection.each(function(model){
             $("#showPhotos").append("<div class='photoPreviewContainer' id='"+model.get("_id")+"'></div>");
             var photoPreviewView = new PhotoPreviewView(model);
             photoPreviewView.render();
         });
+        self.checkHeight();
+
     },
 
+    checkHeight: function(){
+        var largeHeight = 1000;
+        var mainHeight = $("#main").height();
+        var $footer = $("#footer");
+        if(mainHeight > largeHeight){
+            console.log("adding large height");
+            $footer.addClass("largeHeight");
+        } else {
+            console.log("removing largeHeight");
+            $footer.removeClass("largeHeight");
+        }
+    },
 
     fetchShow: function(_urlTitle){
         var self = this;

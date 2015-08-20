@@ -75,7 +75,6 @@ var self = {
     },
 
     createShow: function(req, res){
-        console.log("creating show yo");
         if(authenticate(req, res)){
             self.savePhotoAndThumb(req, res, self.saveShow);
         }
@@ -88,7 +87,7 @@ var self = {
             if(req.files && typeof req.files.photo !== "undefined"){
                 self.savePhotoAndThumb(req, res, self.updateShow) ;
             } else if(req.files && typeof req.files.thumb !== "undefined"){
-                self.saveThumb(req, res, self.updateDude);
+                self.saveThumb(req, res, self.updateShow);
             } else {
                 self.updateShow(req, res);
             }
@@ -172,11 +171,12 @@ var self = {
 
     deleteShow: function(req, res){
         if(authenticate(req, res)){
+            console.log("deleting show");
             var id = req.body._id;
             ShowModel.findById(id, function(err, show){
                 show.remove(function(err){
                     if(err) return handleError(err);
-                    res.send(dude);
+                    res.send(show);
                 });
             });
         }

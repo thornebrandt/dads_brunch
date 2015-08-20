@@ -1,14 +1,14 @@
 var View     = require('./view');
-var ShowPreviewView = require('../views/show-preview-view');
+var ShowPreviewView = require('../views/admin-show-preview-view');
 var template = require('../templates/admin-content-template');
 var ShowModel = require('../models/show-model');
-var DudeCollection = require('../collections/show-collection');
+var ShowCollection = require('../collections/show-collection');
 
 module.exports = View.extend({
     el: "#admin_content",
     template: template,
     afterRender: function(){
-        this.setupDudeCollection();
+        this.setupShowCollection();
     },
 
     getRenderData: function(){
@@ -18,13 +18,13 @@ module.exports = View.extend({
         return this.viewModel;
     },
 
-    setupDudeCollection: function(){
-        this.dudeCollection = new DudeCollection();
+    setupShowCollection: function(){
+        this.showCollection = new ShowCollection();
         var self = this;
-        this.dudeCollection.fetch({
+        this.showCollection.fetch({
             url: BASE_URL + "/shows",
             success: function(data){
-                self.renderDudeCollection();
+                self.renderShowCollection();
             },
             error: function(collection, response){
                 console.log("something went wrong getting dudes");
@@ -32,10 +32,10 @@ module.exports = View.extend({
             }
         });
     },
-    renderDudeCollection: function(){
+    renderShowCollection: function(){
         var self = this;
-        this.dudeCollection.each(function(model){
-            $(self.el).append("<div class='dudePreviewContainer' id='" + model.get("_id") + "'></div>");
+        this.showCollection.each(function(model){
+            $(self.el).append("<div class='showPreviewContainer' id='" + model.get("_id") + "'></div>");
             var showPreviewView = new ShowPreviewView(model);
             showPreviewView.render();
         });

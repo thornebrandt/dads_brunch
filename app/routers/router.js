@@ -15,7 +15,7 @@ module.exports = Backbone.Router.extend({
 
     routes: {
         '': 'index',
-        'admin(/)' : 'admin',
+        'admin(/)' : 'adminShows',
         'admin/shows(/)': 'adminShows',
         'admin/shows/new(/)': 'newShow',
         'shows/:urlTitle(/)' : 'specificShow',

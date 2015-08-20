@@ -1,5 +1,5 @@
 var ModelView     = require('./model-view');
-var template = require('../templates/show-preview-template');
+var template = require('../templates/admin-show-preview-template');
 var ShowModel = require('../models/show-model');
 
 module.exports = ModelView.extend({
@@ -12,8 +12,8 @@ module.exports = ModelView.extend({
     },
     goToSpecificShow: function(e){
         e.preventDefault();
-        var title = $(e.currentTarget).attr("data-title");
-        var url =   "/shows/" + title;
+        var urlTitle = $(e.currentTarget).attr("data-title");
+        var url =   "admin/shows/" + urlTitle + "/edit"
         App.router.navigate(url, { trigger: true });
     },
     template: template,

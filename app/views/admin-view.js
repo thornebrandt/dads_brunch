@@ -8,6 +8,7 @@ module.exports = View.extend({
     template: template,
     events: {
         "click #newShowBtn" : "newShowBtnHandler",
+        "click #showsBtn": "showsBtnHandler"
     },
 
     getRenderData: function(){
@@ -23,6 +24,11 @@ module.exports = View.extend({
     newShowBtnHandler: function(e){
         e.preventDefault();
         App.router.navigate("admin/shows/new", { trigger: true });
+    },
+
+    showsBtnHandler: function(e){
+        e.preventDefault();
+        App.router.navigate("admin/shows", { trigger: true})
     }
 
 })

@@ -13,6 +13,9 @@
             <li><a href="#" id="calendarBtn">Media</a></li>
             <li><a href="#" id="proposalsBtn">Proposals</a></li>
             <li> <a href="#" id="aboutBtn">About</a>  </li>
+            {{#if authorized}}
+                <li><a href="#" id="adminBtn">Admin</a></li>
+            {{/if}}
         </ul>
     </div>
 

@@ -1,5 +1,4 @@
 var View     = require('./view');
-var ShowPreviewView = require('../views/show-preview-view');
 var template = require('../templates/index-template');
 var showTemplate = require('../templates/show-template');
 var ShowCollection = require('../collections/show-collection');

@@ -1,5 +1,4 @@
 var View     = require('./view');
-var ShowPreviewView = require('../views/show-preview-view');
 var template = require('../templates/edit-show-template');
 var ShowModel = require('../models/show-model');
 var time = require('../helpers/dateHelper');
@@ -97,7 +96,6 @@ module.exports = View.extend({
 
     setupUploader: function($el){
         var _id = this.model.get("_id");
-        var url = BASE_URL + "/shows/edit/" + _id;
         var url = BASE_URL + "/shows/edit/";
         var self = this;
 
@@ -169,21 +167,30 @@ module.exports = View.extend({
     deleteShowHandler: function(e){
         e.preventDefault();
         var url = BASE_URL + "/show";
-        this.model.save(
-            this.model.toJSON(),
-            {
-                url: url,
-                type: 'DELETE'
+        $("#dialogError").dialog({
+            buttons: {
+                "No": function(){
+                    $(this).dialog("close");
+                }
             }
-        ).then(
-            function success(data){
-                App.router.navigate("shows", { trigger: true });
-            },
-            function error(e){
-                console.log("error deleting");
-                console.log(e.responseText);
-            }
-        );
+        });
+
+
+        // this.model.save(
+        //     this.model.toJSON(),
+        //     {
+        //         url: url,
+        //         type: 'DELETE'
+        //     }
+        // ).then(
+        //     function success(data){
+        //         App.router.navigate("admin/shows", { trigger: true });
+        //     },
+        //     function error(e){
+        //         console.log("error deleting");
+        //         console.log(e.responseText);
+        //     }
+        // );
 
     },
 

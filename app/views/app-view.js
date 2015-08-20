@@ -13,6 +13,7 @@ module.exports = View.extend({
         "click #newDudeBtn" : "newDudeBtnHandler",
         "click #allDudesBtn" : "allDudesBtnHandler",
         "click #mobile_menu_btn": "mobileMenuBtnHandler",
+        "click #adminBtn" : "adminBtnHandler",
         "click .home_logo" : "homeLogoHandler"
     },
 
@@ -89,6 +90,12 @@ module.exports = View.extend({
             $("#menu").slideUp();
         }
     },
+
+    adminBtnHandler: function(e){
+        e.preventDefault();
+        App.router.navigate("/admin", { trigger: true });
+    },
+
 
     removeIndexClass: function(){
         //$(this.containerEl).removeClass("index");

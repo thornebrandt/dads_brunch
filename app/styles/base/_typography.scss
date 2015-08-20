@@ -1,20 +1,6 @@
 // Typefaces
-@include font-face("MuseoSans", "../fonts/MuseoSans-100", 100);
-@include font-face("MuseoSans", "../fonts/MuseoSans-300", 300);
-@include font-face("MuseoSans", "../fonts/MuseoSans-500", 500);
-@include font-face("MuseoSans", "../fonts/MuseoSans-700", 700);
-@include font-face("MuseoSans", "../fonts/MuseoSans-900", 900);
-
-@include font-face("MuseoSansRounded", "../fonts/MuseoSansRounded-100", 100);
-@include font-face("MuseoSansRounded", "../fonts/MuseoSansRounded-300", 300);
-@include font-face("MuseoSansRounded", "../fonts/MuseoSansRounded-500", 500);
-@include font-face("MuseoSansRounded", "../fonts/MuseoSansRounded-700", 700);
-@include font-face("MuseoSansRounded", "../fonts/MuseoSansRounded-900", 900);
-
-
 // Typography Defaults
 body {
-	font-family: "MuseoSans", Helvetica, sans-serif;
 	font-size: $fontSize-base;
 	font-weight: 300;
 	line-height: $lineHeight-base;
@@ -27,7 +13,6 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "MuseoSansRounded", Helvetica, sans-serif;
   font-weight: 900;
 }
 h1 {

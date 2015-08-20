@@ -1,6 +1,8 @@
 var App = require('application');
+var noCaseRouter = require('./noCaseRouter');
 
 module.exports = Backbone.Router.extend({
+
     initialize: function(){
         App.Views.IndexView = require('../views/index-view');
         App.Views.ShowView = require('../views/show-view');
@@ -14,15 +16,16 @@ module.exports = Backbone.Router.extend({
 
     },
 
+
     routes: {
         '': 'index',
-        'shows/:urlTitle(/)' : 'specificShow',
-        'calendar(/)' : 'calendar',
-        'shows(/)' : 'calendar',
-        'admin(/)' : 'adminShows',
-        'admin/shows(/)': 'adminShows',
-        'admin/shows/new(/)': 'newShow',
-        'admin/shows/:urlTitle/edit(/)' : 'editShow',
+        'shows/:urlTitle' : 'specificShow',
+        'calendar' : 'calendar',
+        'shows' : 'calendar',
+        'admin' : 'adminShows',
+        'admin/shows': 'adminShows',
+        'admin/shows/new': 'newShow',
+        'admin/shows/:urlTitle/edit' : 'editShow',
         'login/:password': 'loginRoute',
         'logout' : 'logoutRoute',
         '*path' : 'defaultRoute',
@@ -31,6 +34,19 @@ module.exports = Backbone.Router.extend({
     defaultRoute: function(){
         this.index();
     },
+
+    _routeToRegExp: function (route) {
+        var namedParam    = /:\w+/g;
+        var splatParam    = /\*\w+/g;
+        var escapeRegExp  = /[-[\]{}()+?.,\\^$|#\s]/g;
+
+        route = route.replace(escapeRegExp, '\\$&')
+                    .replace(namedParam, '([^\/]+\/?)')
+                    .replace(splatParam, '(.*?)');
+        console.log( new RegExp('^' + route + '$', 'i' ));
+        return new RegExp('^' + route + '/?$', 'i');
+    },
+
 
     loginRoute: function(_password){
         //$.cookie('password', md5(_password), { expires: 7, path: '/' });

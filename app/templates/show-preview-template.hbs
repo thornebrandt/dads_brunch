@@ -1,0 +1,12 @@
+<a data-title="{{urlTitle}}" href="#" class="showPreview">
+    {{#if thumb}}
+        <img class="showPreviewThumb" src="{{thumb}}" />
+    {{/if}}
+    {{#if isFuture}}
+        <i>{{futureDate}}</i>future {{{title}}}
+    {{ else }}
+        <i>{{pastDate}}</i>past{{{title}}}
+    {{/if}}
+    {{{timeInfo}}}
+    {{{summary}}}
+</a>

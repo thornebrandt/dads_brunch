@@ -1,5 +1,5 @@
 var View     = require('./view');
-var ShowPreviewView = require('../views/admin-show-preview-view');
+var ShowPreviewView = require('../views/show-preview-view');
 var template = require('../templates/admin-content-template');
 var ShowModel = require('../models/show-model');
 var ShowCollection = require('../collections/show-collection');

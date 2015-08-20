@@ -1,12 +1,30 @@
-<a data-title="{{urlTitle}}" href="#" class="showPreview">
-    {{#if thumb}}
-        <img class="showPreviewThumb" src="{{thumb}}" />
+<div data-title="{{urlTitle}}" href="#" class="showPreview">
+    {{#if title}}
+        <div class="showPreviewThumbContainer">
+            <a href="/shows/{{urlTitle}}" class="showLink">
+                <img class="showPreviewThumb" src="{{thumb}}" />
+            </a>
+        </div>
+        <div class="showPreviewCopy">
+            {{#if isFuture}}
+                <a class="showPreviewDate showLink" href="/shows/{{urlTitle}}">
+                    {{futureDate}} - {{{timeInfo}}}
+
+                </a>
+            {{ else }}
+                <a class="showPreviewDate showLink" href="/shows/{{urlTitle}}">
+                    {{pastDate}}
+                </a>
+            {{/if}}
+            <br>
+            <a class="showPreviewTitle showLink" href="/shows/{{urlTitle}}">
+                {{{title}}}
+            </a>
+            <br>
+            <span class="showPreviewSummary">
+                {{{summary}}}
+            </span>
+        </div>
+        <div class="clearfloat"></div>
     {{/if}}
-    {{#if isFuture}}
-        <i>{{futureDate}}</i>future {{{title}}}
-    {{ else }}
-        <i>{{pastDate}}</i>past{{{title}}}
-    {{/if}}
-    {{{timeInfo}}}
-    {{{summary}}}
-</a>
+</div>

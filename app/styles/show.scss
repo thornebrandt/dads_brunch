@@ -86,3 +86,38 @@
     display: block;
     width: 100%;
 }
+
+.showPreview{
+    height: auto;
+    pointer: cursor;
+    position: relative;
+    float: clear;
+    min-height: 100px;
+    margin-bottom: 20px;
+}
+
+.showPreviewThumbContainer{
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100px;
+}
+.showPreviewCopy{
+    margin-left: 110px;
+    display: block;
+}
+
+.clearFloat{
+    float: clear;
+}
+
+a.showPreviewDate{
+    color: $color-orange;
+    font-weight: 600;
+    font-size: 1.3em;
+}
+
+a.showPreviewTitle{
+    font-size: 1.5em;
+}

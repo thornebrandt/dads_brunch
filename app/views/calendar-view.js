@@ -1,16 +1,14 @@
 var View     = require('./view');
 var ShowPreviewView = require('../views/show-preview-view');
-var template = require('../templates/admin-content-template');
+var template = require('../templates/calendar-template');
 var ShowModel = require('../models/show-model');
 var ShowCollection = require('../collections/show-collection');
 
 module.exports = View.extend({
     el: "#main",
+    futureEl: '#upcomingShows',
+    pastEl: '#pastShows',
     template: template,
-    afterRender: function(){
-        this.setupShowCollection();
-    },
-
     getRenderData: function(){
         this.viewModel = {
             h2: "hey bro"
@@ -19,9 +17,9 @@ module.exports = View.extend({
     },
 
     fetchShows: function(){
-        this.showCollection = new ShowCollection();
+        this.futureCollection = new ShowCollection();
         var self = this;
-        this.showCollection.fetch({
+        this.futureCollection.fetch({
             url: BASE_URL + "/shows",
             success: function(data){
                 self.renderShowCollection();
@@ -35,9 +33,17 @@ module.exports = View.extend({
 
     renderShowCollection: function(){
         var self = this;
-        this.showCollection.each(function(model){
-            $(self.el).append("<div class='showPreviewContainer' id='" + model.get("_id") + "'></div>");
+        this.futureCollection.each(function(model){
+            model.formatDate();
             var showPreviewView = new ShowPreviewView(model);
+            var previewString = "<div class='showPreviewContainer' id='" + model.get("_id") + "'></div>";
+            console.log("isFuture");
+            console.log( model.get("isFuture") );
+            if(model.get("isFuture")){
+                $(self.futureEl).append(previewString);
+            }else{
+                $(self.pastEl).prepend(previewString);
+            }
             showPreviewView.render();
         });
     }

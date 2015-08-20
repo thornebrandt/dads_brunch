@@ -7,6 +7,7 @@ module.exports = View.extend({
     id: 'app-view',
     template: template,
     events: {
+        "click #homeBtn" : "homeBtnHandler",
         "click #newShowBtn" : "newShowBtnHandler",
         "click #showsBtn": "showsBtnHandler"
     },
@@ -29,6 +30,12 @@ module.exports = View.extend({
     showsBtnHandler: function(e){
         e.preventDefault();
         App.router.navigate("admin/shows", { trigger: true})
-    }
+    },
+
+    homeBtnHandler: function(e){
+        e.preventDefault();
+        App.router.navigate("/", { trigger: true})
+    },
+
 
 })

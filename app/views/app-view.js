@@ -94,9 +94,14 @@ module.exports = View.extend({
 
     calendarBtnHandler: function(e){
         e.preventDefault();
+        this.scrollToMain();
         App.router.navigate("/calendar", { trigger: true });
     },
 
+    scrollToMain: function(){
+        var offset = $("#main_container").css("marginTop");
+        $("#container").animate({ scrollTop: offset });
+    },
 
     adminBtnHandler: function(e){
         e.preventDefault();

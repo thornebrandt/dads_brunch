@@ -25,10 +25,22 @@ body{
         color: white;
         text-decoration: none;
         &:hover{
-            color: $color-orange;
+            color: $show-bg;
         }
     }
+}
 
+
+h2{
+    font-weight: 100;
+    font-size: 2em;
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-orange;
+    @include media($medium-screen-up){
+        font-size: 3em;
+        font-weight: 200;
+    }
 }
 
 
@@ -186,6 +198,10 @@ body{
         //background: $transparent_black;
         width: 80%;
         height: auto;
+    }
+
+    b, strong{
+        font-weight: 900 !important;
     }
 }
 

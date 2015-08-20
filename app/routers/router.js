@@ -1,5 +1,4 @@
 var App = require('application');
-var noCaseRouter = require('./noCaseRouter');
 
 module.exports = Backbone.Router.extend({
 
@@ -22,13 +21,13 @@ module.exports = Backbone.Router.extend({
         'shows/:urlTitle' : 'specificShow',
         'calendar' : 'calendar',
         'shows' : 'calendar',
-        'admin' : 'adminShows',
-        'admin/shows': 'adminShows',
-        'admin/shows/new': 'newShow',
-        'admin/shows/:urlTitle/edit' : 'editShow',
-        'login/:password': 'loginRoute',
-        'logout' : 'logoutRoute',
-        '*path' : 'defaultRoute',
+        'admin(/)' : 'adminShows',
+        'admin/shows(/)': 'adminShows',
+        'admin/shows/new(/)': 'newShow',
+        'admin/shows/:urlTitle/edit(/)' : 'editShow',
+        'login/:password(/)': 'loginRoute',
+        'logout(/)' : 'logoutRoute',
+        '*path(/)' : 'defaultRoute',
     },
 
     defaultRoute: function(){
@@ -36,17 +35,19 @@ module.exports = Backbone.Router.extend({
     },
 
     _routeToRegExp: function (route) {
-        var namedParam    = /:\w+/g;
-        var splatParam    = /\*\w+/g;
-        var escapeRegExp  = /[-[\]{}()+?.,\\^$|#\s]/g;
+          var optionalParam = /\((.*?)\)/g;
+          var namedParam    = /(\(\?)?:\w+/g;
+          var splatParam    = /\*\w+/g;
+          var escapeRegExp  = /[\-{}\[\]+?.,\\\^$|#\s]/g;
 
-        route = route.replace(escapeRegExp, '\\$&')
-                    .replace(namedParam, '([^\/]+\/?)')
-                    .replace(splatParam, '(.*?)');
-        console.log( new RegExp('^' + route + '$', 'i' ));
-        return new RegExp('^' + route + '/?$', 'i');
+          route = route.replace(escapeRegExp, '\\$&')
+                       .replace(optionalParam, '(?:$1)?')
+                       .replace(namedParam, function(match, optional) {
+                         return optional ? match : '([^/?]+)';
+                       })
+                       .replace(splatParam, '([^?]*?)');
+          return new RegExp('^' + route + '(?:\\?([\\s\\S]*))?$', 'i');
     },
-
 
     loginRoute: function(_password){
         //$.cookie('password', md5(_password), { expires: 7, path: '/' });
@@ -89,6 +90,7 @@ module.exports = Backbone.Router.extend({
         this.loadApp();
         console.log("getting calendar view");
         App.views.calendarView = new App.Views.CalendarView();
+        App.views.calendarView.render();
         App.views.calendarView.fetchShows();
     },
 

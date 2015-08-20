@@ -9,7 +9,7 @@ var gm = require('gm').subClass({imageMagick: true});
 var self = {
 
     getAll: function(req, res){
-        var _query = ShowModel.find().sort( { date: -1 });
+        var _query = ShowModel.find().sort( { date: 1 });
         _query.exec(function(err, models){
             if(!err){
                 res.json(models);

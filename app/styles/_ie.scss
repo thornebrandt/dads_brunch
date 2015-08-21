@@ -1,0 +1,58 @@
+.ie{
+    body{
+        @include media($medium-screen-up){
+            overflow: visible;
+        }
+    }
+
+    #container{
+        @include media($medium-screen-up){
+            background-image: url("../images/bg_gradient_stripes.png");
+            position: relative;
+            background-repeat: repeat-x;
+            overflow: auto;
+        }
+    }
+
+    #bg{
+        @include media($medium-screen-up){
+            display: none;
+        }
+    }
+
+    #main_container{
+        @include media($medium-screen-up){
+            &.index{
+                margin-top: 0px;
+            }
+        }
+    }
+
+    #mountain1{
+        @include media($medium-screen-up){
+            margin: auto;
+
+        }
+    }
+
+    #mountain2{
+        display: none;
+        @include media($medium-screen-up){
+            display: none;
+        }
+    }
+
+    #dads_logo{
+        display: none;
+
+    }
+
+
+
+    // #main{
+    //     @include media($medium-screen-up){
+
+    //     }
+    // }
+
+}

@@ -4,6 +4,8 @@
 @import "base/base";
 
 @import "parallax";
+@import "ie";
+
 
 
 body{
@@ -13,6 +15,7 @@ body{
     background: black;
     position: relative;
     height: 100%;
+
     @include media($medium-screen-up){
         overflow: hidden;
     }
@@ -582,6 +585,17 @@ font-size: 18px;
 
 
 
+//about
+#mediaContainer{
+    a{
+        color: $color-orange;
+        &:hover{
+            color: $show-bg;
+        }
+    }
+}
+
+
 
 
 
@@ -595,6 +609,9 @@ font-size: 18px;
     text-justify: distribute;
     a{
         color: $color-orange;
+        &:hover{
+            color: $show-bg;
+        }
     }
 }
 

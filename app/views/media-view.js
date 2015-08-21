@@ -13,7 +13,8 @@ module.exports = View.extend({
     events: {
         "click .mediaThumbLink" : "thumbClickHandler",
         "click .caption a" : "captionLinkHandler",
-        'click .editPhoto' : 'editPhotoHandler'
+        'click .editPhoto' : 'editPhotoHandler',
+        'click .mediaVideo' : 'mediaVideoHandler'
     },
 
     getRenderData: function(){
@@ -21,6 +22,15 @@ module.exports = View.extend({
             h2: "hey bro"
         }
         return this.viewModel;
+    },
+
+    mediaVideoHandler: function(e){
+        var vid = e.target;
+        if(vid.paused){
+            vid.play();
+        } else {
+            vid.pause();
+        }
     },
 
     fetchPhotos: function(){

@@ -52,6 +52,14 @@ h2{
         position: fixed;
         overflow-y: auto;
     }
+    -webkit-transform: translate3d(0,0,0);
+
+}
+
+
+.safari #bg{
+    height: 765px;
+    -webkit-transform: none;
 }
 
 #bg{
@@ -62,10 +70,9 @@ h2{
         background-repeat: repeat-x;
         height: 100%;
         width: 100%;
-        z-index: -1;
+        z-index: -99;
     }
 }
-
 
 
 
@@ -446,6 +453,20 @@ z-index: -1;
     margin-bottom: 5px;
 }
 
+.mediaVideo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    max-width: 600px;
+    margin-bottom: 5px;
+}
+
+#videosContainer{
+    margin-bottom: 20px;
+}
+
+
 .caption{
     text-align:center;
     margin-top: 3px;
@@ -546,7 +567,7 @@ font-size: 18px;
 
 #videosContainer{
     display: none;
-    @include media($tablet-up){
+    @include media($medium-screen-up){
         display: block;
     }
 }

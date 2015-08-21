@@ -16,6 +16,7 @@ module.exports = View.extend({
         "click #adminBtn" : "adminBtnHandler",
         "click #calendarBtn" : "calendarBtnHandler",
         "click #mediaBtn" : "mediaBtnHandler",
+        "click #aboutBtn" : "aboutBtnHandler",
         "click .home_logo" : "homeLogoHandler"
     },
 
@@ -98,6 +99,11 @@ module.exports = View.extend({
         e.preventDefault();
         this.scrollToMain();
         App.router.navigate("media", { trigger: true });
+    },
+
+    aboutBtnHandler: function(e){
+        e.preventDefault();
+        this.scroll
     },
 
     scrollToMain: function(){

@@ -24,6 +24,9 @@
     }
 }
 
+
+
+
 .plx_bg1{
     @include media($medium-screen-up){
         transform: translateX(-51%) translateZ(-1px) scale(2.1);

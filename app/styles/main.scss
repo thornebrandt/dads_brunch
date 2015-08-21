@@ -442,7 +442,7 @@ z-index: -1;
     margin-right: auto;
     text-align: center;
     width: 100%;
-    max-width: 800px;
+    max-width: 960px;
     margin-bottom: 5px;
 }
 
@@ -543,3 +543,19 @@ font-size: 18px;
 .showPreviewThumb{
     width: 100px;
 }
+
+#videosContainer{
+    display: none;
+    @include media($tablet-up){
+        display: block;
+    }
+}
+
+.vine_container{
+    width: 600;
+    display: block;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+

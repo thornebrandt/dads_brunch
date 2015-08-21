@@ -73,7 +73,7 @@ module.exports = View.extend({
         var self = this;
         var i = 0;
         this.photoCollection.each(function(model){
-            $("#media").append( photoTemplate(model.toJSON() ));
+            $("#photos").append( photoTemplate(model.toJSON() ));
             i++;
         });
         setTimeout(  App.appView.checkHeight,  300 );

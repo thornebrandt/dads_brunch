@@ -102,7 +102,6 @@ module.exports = Backbone.Router.extend({
 
     media: function(){
         this.loadApp();
-        console.log("getting media view");
         App.views.mediaView = new App.Views.MediaView();
         App.views.mediaView.render();
         App.views.mediaView.fetchPhotos();

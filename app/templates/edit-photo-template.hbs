@@ -4,10 +4,13 @@
     Caption:
     <input type="text" id="captionInput" name="caption" value="{{caption}}"/>
     <br>
-    Show ID:
-    <input type="text" id="show_idInput" name="show_id"  value="{{show_id}}" />
 
 
+    Show:<select id="showSelect">
+        <option value="">No Show</option>
+    </select>
+
+    <input type="hidden" id="show_idInput" name="show_id"  value="{{show_id}}" />
 
     <h3>Thumb</h3>
     <div id="displayThumb">

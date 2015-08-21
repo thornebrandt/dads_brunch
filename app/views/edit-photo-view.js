@@ -1,6 +1,7 @@
 var View     = require('./view');
 var template = require('../templates/edit-photo-template');
 var PhotoModel = require('../models/photo-model');
+var ShowsCollection = require('../collections/show-collection');
 var FileHelper = require('../helpers/fileHelper');
 
 module.exports = View.extend({
@@ -9,12 +10,49 @@ module.exports = View.extend({
     events: {
         'submit #photoForm' : 'submitFormHandler',
         'submit #showForm' : 'submitFormHandler',
-        'click #deleteShowBtn' : 'deleteHandler'
+        'click #deletePhotoBtn' : 'deleteHandler',
+        'change #showSelect' : 'populateShowID',
     },
 
     afterRender: function(){
         this.setupThumbUploader();
         this.setupThumbPreview();
+        this.setupShowSelect();
+    },
+
+    populateShowID: function(e){
+        console.log("selected");
+        $("#show_idInput").val(  $(e.target).val() );
+    },
+
+    setupShowSelect: function(){
+        this.showsCollection = new ShowsCollection();
+        var self = this;
+        this.showsCollection.fetch({
+            success: function(data){
+                self.populateShowSelect();
+            },
+            error: function(e){
+                console.log("something went wrong fetching shows for dropdown");
+                console.log(e.responseText);
+            }
+        });
+    },
+
+    populateShowSelect: function(){
+        this.showsCollection.each(function(model){
+            var _id = model.get("_id");
+            var title = model.get("title");
+            var selected = "";
+            if(_id === $("#show_idInput").val() ){
+                selected = "selected"
+            }
+            var optionString = "<option "+selected+" value ='"+_id+"'>"+title+"</option>";
+
+            $("#showSelect").append(
+                optionString
+            );
+        });
     },
 
     getRenderData: function(){
@@ -89,7 +127,7 @@ module.exports = View.extend({
     },
 
     delete: function(){
-        var url = BASE_URL + "/show";
+        var url = BASE_URL + "/photos/" + this.model.get("_id");
         this.model.save(
             this.model.toJSON(),
             {
@@ -98,7 +136,7 @@ module.exports = View.extend({
             }
         ).then(
             function success(data){
-                App.router.navigate("admin/shows", { trigger: true });
+                App.router.navigate("media", { trigger: true });
             },
             function error(e){
                 console.log("error deleting");

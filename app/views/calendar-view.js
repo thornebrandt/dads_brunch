@@ -16,6 +16,10 @@ module.exports = View.extend({
         return this.viewModel;
     },
 
+    afterRender: function(){
+        App.appView.scrollToMain();
+    },
+
     fetchShows: function(){
         this.futureCollection = new ShowCollection();
         var self = this;
@@ -37,8 +41,6 @@ module.exports = View.extend({
             model.formatDate();
             var showPreviewView = new ShowPreviewView(model);
             var previewString = "<div class='showPreviewContainer' id='" + model.get("_id") + "'></div>";
-            console.log("isFuture");
-            console.log( model.get("isFuture") );
             if(model.get("isFuture")){
                 $(self.futureEl).append(previewString);
             }else{

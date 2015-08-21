@@ -580,3 +580,43 @@ font-size: 18px;
     margin-right: auto;
 }
 
+
+
+
+
+
+
+//about
+
+.about{
+    font-size: 1.3em;
+    line-height: 1.5em;
+    text-align: justify;
+    text-justify: distribute;
+    a{
+        color: $color-orange;
+    }
+}
+
+
+#layout{
+    width: 100%;
+}
+
+#aboutImages{
+    height: auto;
+    text-align: center;
+    img{
+        text-align: center;
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 20px;
+        padding-right: 5px;
+        @include media($medium-screen-up){
+            height: 50%;
+        }
+        @include media($large-screen-up){
+            height: 70%;
+        }
+    }
+}

@@ -26,8 +26,6 @@ module.exports = View.extend({
         this.photoCollection.fetch({
             url: BASE_URL + "/photos/show/" + show_id,
             success: function(data){
-                console.log("got photos");
-                console.log(data);
                 self.renderPhotos();
             },
             error: function(collection, response){

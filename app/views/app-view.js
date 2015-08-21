@@ -103,7 +103,8 @@ module.exports = View.extend({
 
     aboutBtnHandler: function(e){
         e.preventDefault();
-        this.scroll
+        this.scrollToMain();
+        App.router.navigate("about", { trigger: true });
     },
 
     scrollToMain: function(){

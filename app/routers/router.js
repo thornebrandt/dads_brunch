@@ -7,6 +7,7 @@ module.exports = Backbone.Router.extend({
         App.Views.ShowView = require('../views/show-view');
         App.Views.CalendarView = require('../views/calendar-view');
         App.Views.MediaView = require('../views/media-view');
+        App.Views.AboutView = require('../views/about-view');
         App.Views.AppView = require('../views/app-view');
         App.Views.AdminView = require('../views/admin-view');
         App.Views.AdminShowsView = require('../views/admin-shows-view');
@@ -25,6 +26,7 @@ module.exports = Backbone.Router.extend({
         'calendar(/)' : 'calendar',
         'shows(/)' : 'calendar',
         'media(/)' : 'media',
+        'about(/)' : 'about',
         'admin(/)' : 'adminShows',
         'admin/shows(/)': 'adminShows',
         'admin/shows/new(/)': 'newShow',
@@ -95,6 +97,7 @@ module.exports = Backbone.Router.extend({
 
     calendar: function(){
         this.loadApp();
+        console.log("calendar route back btns?");
         App.views.calendarView = new App.Views.CalendarView();
         App.views.calendarView.render();
         App.views.calendarView.fetchShows();
@@ -105,6 +108,12 @@ module.exports = Backbone.Router.extend({
         App.views.mediaView = new App.Views.MediaView();
         App.views.mediaView.render();
         App.views.mediaView.fetchPhotos();
+    },
+
+    about: function(){
+        this.loadApp();
+        App.views.aboutView = new App.Views.AboutView();
+        App.views.aboutView.render();
     },
 
     index: function() {

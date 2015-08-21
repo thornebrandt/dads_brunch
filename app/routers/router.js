@@ -13,6 +13,7 @@ module.exports = Backbone.Router.extend({
         App.Views.NewShowView = require('../views/new-show-view');
         App.Views.NewPhotoView = require('../views/new-photo-view');
         App.Views.EditShowView = require('../views/edit-show-view');
+        App.Views.EditPhotoView = require('../views/edit-photo-view');
         this.setupAjax();
 
     },
@@ -27,8 +28,10 @@ module.exports = Backbone.Router.extend({
         'admin(/)' : 'adminShows',
         'admin/shows(/)': 'adminShows',
         'admin/shows/new(/)': 'newShow',
-        'admin/photos/new(/)': 'newShow',
+        'admin/photos/new(/)': 'newPhoto',
+        'admin/photos/:id(/)' : 'editPhoto',
         'admin/shows/:urlTitle/edit(/)' : 'editShow',
+        'admin/shows/:urlTitle(/)' : 'editShow',
         'login/:password(/)': 'loginRoute',
         'logout(/)' : 'logoutRoute',
         '*path(/)' : 'defaultRoute',
@@ -130,6 +133,17 @@ module.exports = Backbone.Router.extend({
         }
     },
 
+    editPhoto: function(_id){
+        if(App.authorized){
+            this.loadAdmin();
+            App.views.editPhotoView = new App.Views.EditPhotoView();
+            App.views.editPhotoView.fetchPhoto(_id);
+        } else {
+            App.error("Not authorized to edit");
+            this.navigate("/", { trigger: true, replace: true });
+        }
+    },
+
     admin: function(){
         console.log("admin route");
         if(App.authorized){
@@ -157,7 +171,7 @@ module.exports = Backbone.Router.extend({
         }
     },
 
-    newShow: function(){
+    newPhoto: function(){
         if(App.authorized){
             this.loadAdmin();
             App.views.newPhotoView = new App.Views.NewPhotoView();

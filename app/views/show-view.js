@@ -20,12 +20,11 @@ module.exports = View.extend({
     },
 
     fetchPhotos: function(){
-        var _id = this.model.get("_id");
+        var show_id = this.model.get("_id");
         this.photoCollection = new PhotoCollection();
         var self = this;
-        console.log("fetcing photos:" + _id);
         this.photoCollection.fetch({
-            url: BASE_URL + "/photos/" + _id,
+            url: BASE_URL + "/photos/show/" + show_id,
             success: function(data){
                 console.log("got photos");
                 console.log(data);

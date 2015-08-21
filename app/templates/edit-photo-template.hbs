@@ -1,0 +1,25 @@
+<h2>Editing Photo</h2>
+<img src="{{photo}}" />
+<form id="showForm" enctype="multipart/form-data">
+    Caption:
+    <input type="text" id="captionInput" name="caption" value="{{caption}}"/>
+    <br>
+    Show ID:
+    <input type="text" id="show_idInput" name="show_id"  value="{{show_id}}" />
+
+
+
+    <h3>Thumb</h3>
+    <div id="displayThumb">
+        <img id="thumbPreview" src="{{thumb}}" />
+    </div>
+
+    Edit Thumb:<input id="thumbInput" class="thumbupload" type="file" name="thumb">
+    <br>
+
+    <input class="btn" type="submit" value="Submit" name="submit" id="upload_btn">
+</form>
+
+<p>
+    <a href="#" id="deletePhotoBtn">DELETE PHOTO</a>
+</p>

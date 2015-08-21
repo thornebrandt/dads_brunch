@@ -167,7 +167,6 @@ module.exports = View.extend({
     deleteShowHandler: function(e){
         e.preventDefault();
         var self = this;
-        console.log("wait what");
         App.prompt("Are you sure you want to do this?", function(){
             App.closeDialog();
             self.deleteShow();

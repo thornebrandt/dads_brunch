@@ -61,11 +61,13 @@ app.patch('/shows/edit', showController.editShow);
 //end-dudes
 
 //photos
-app.get('/photos/:show_id', photoController.getPhotosByShow);
+app.get('/photos/show/:show_id', photoController.getPhotosByShow);
 app.get('/photos/:id', photoController.getPhoto);
 app.get("/photos", photoController.getPhotos);
 app.post('/photos', photoController.postPhoto);
 app.delete('/photos/:id', photoController.deletePhoto);
+app.patch('/photos/edit', photoController.editPhoto);
+
 
 
 

@@ -44,21 +44,8 @@ module.exports = View.extend({
             var photoPreviewView = new PhotoPreviewView(model);
             photoPreviewView.render();
         });
-        self.checkHeight();
+        App.appView.checkHeight();
 
-    },
-
-    checkHeight: function(){
-        var largeHeight = 1000;
-        var mainHeight = $("#main").height();
-        var $footer = $("#footer");
-        if(mainHeight > largeHeight){
-            console.log("adding large height");
-            $footer.addClass("largeHeight");
-        } else {
-            console.log("removing largeHeight");
-            $footer.removeClass("largeHeight");
-        }
     },
 
     fetchShow: function(_urlTitle){

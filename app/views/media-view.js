@@ -1,14 +1,15 @@
 var View     = require('./view');
 var template = require('../templates/media-template');
-var thumbSetTemplate = require('../templates/thumb-set-template');
+var photoTemplate = require('../templates/photo-template');
 var PhotoCollection = require('../collections/photo-collection');
 var PhotoModel = require('../models/photo-model');
 
 
 module.exports = View.extend({
     el: "#main",
-    thumbs_container: "#thumbs_container",
     template: template,
+    photoIndex: 0,
+    photosPerPage: 12,
     events: {
         "click .mediaThumbLink" : "thumbClickHandler",
     },
@@ -26,7 +27,6 @@ module.exports = View.extend({
             url: BASE_URL + "/photos",
             success: function(data){
                 self.renderPhotos();
-                self.renderPhoto(0);
             },
             error: function(collection, response){
                 console.log("something went wrong getting dudes");
@@ -53,19 +53,11 @@ module.exports = View.extend({
     renderPhotos: function(){
         var self = this;
         var i = 0;
-        $(this.thumbs_container).append( thumbSetTemplate() );
-
         this.photoCollection.each(function(model){
-            var $a = $(".mediaThumbLink").eq(i);
-            var $img = $a.children("img");
-            $a.attr("rel", i);
-            $a.removeClass("disabled");
-            $img.attr("src", model.get("thumb"));
+            $("#media").append( photoTemplate(model.toJSON() ));
             i++;
         });
+        setTimeout(  App.appView.checkHeight,  300 );
 
-        // this.photoCollection.each(function(model){
-
-        // });
     }
 })

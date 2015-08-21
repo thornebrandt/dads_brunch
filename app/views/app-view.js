@@ -34,22 +34,17 @@ module.exports = View.extend({
         //this.dogHead();
     },
 
-
-    dogHead: function(){
-        $("#container").scroll(function(){
-            var currentScroll = $(this).scrollTop() + $(this).innerHeight();
-            var scrollHeight = this.scrollHeight - 2;
-            if(currentScroll >= scrollHeight ){
-                $("#dogHead").animate({
-                    "top" : "0px"
-                },
-                    300
-                );
-            }
-        });
+    checkHeight: function(){
+        var largeHeight = 1000;
+        var mainHeight = $("#main").height();
+        var $footer = $("#footer");
+        console.log("checking height: " + mainHeight);
+        if(mainHeight > largeHeight){
+            $footer.addClass("largeHeight");
+        } else {
+            $footer.removeClass("largeHeight");
+        }
     },
-
-
 
     initialize: function(){
         jqueryHelper.initialize();

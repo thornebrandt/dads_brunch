@@ -179,10 +179,6 @@ h2{
     background: $show-bg2;
     padding: 10px;
     margin-bottom: 20px;
-    img{
-        max-width: 100%;
-    }
-
     @include media($tablet-up){
         width: 90%;
         padding: 30px;
@@ -240,6 +236,10 @@ h2{
     @include media($medium-screen-up){
         margin-top: 22%;
         height: 65%;
+        &.largeHeight {
+            height: auto;
+            margin-top: 0px;
+        }
     }
 
 
@@ -435,6 +435,23 @@ z-index: -1;
     display: block;
     width: 100%;
 }
+
+.mediaPhoto{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 5px;
+}
+
+.caption{
+    text-align:center;
+    margin-top: 3px;
+    margin-bottom: 30px;
+}
+
 
 .showPreview{
     height: auto;

@@ -1,22 +1,16 @@
 <h2>Upload a Photo</h2>
 
 <form id="photoForm" enctype="multipart/form-data">
+    <div id="progress" class="progress">
+        <div class="progress-bar progress-bar-success"></div>
+    </div>
+    <input id="fileupload" type="file" name="photo" required>
+    <br>
+    <div id="displayImage">
+        <img id="imagePreview" src="/images/placeholder.jpg" width="300">
+    </div>
+    <br>
     Caption: <input type="text" name="caption" id="captionInput" >
     <br>
-    <input type="hidden" name="date" id="dateInput" />
-    <br>
-{{!--     <input type="file" name="photo" id="photoInput" />
- --}}    <br>
-    <input id="fileupload" type="file" name="photo" required>
-
-
-<div id="progress" class="progress">
-    <div class="progress-bar progress-bar-success"></div>
-</div>
-
-<div id="displayImage">
-    <img id="imagePreview" src="/images/placeholder.jpg" width="300">
-</div>
-<br>
     <input type="submit" value="Submit" name="submit" id="upload_btn">
 </form>

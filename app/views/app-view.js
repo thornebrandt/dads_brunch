@@ -15,6 +15,7 @@ module.exports = View.extend({
         "click #mobile_menu_btn": "mobileMenuBtnHandler",
         "click #adminBtn" : "adminBtnHandler",
         "click #calendarBtn" : "calendarBtnHandler",
+        "click #mediaBtn" : "mediaBtnHandler",
         "click .home_logo" : "homeLogoHandler"
     },
 
@@ -95,7 +96,13 @@ module.exports = View.extend({
     calendarBtnHandler: function(e){
         e.preventDefault();
         this.scrollToMain();
-        App.router.navigate("/calendar", { trigger: true });
+        App.router.navigate("calendar", { trigger: true });
+    },
+
+    mediaBtnHandler: function(e){
+        e.preventDefault();
+        this.scrollToMain();
+        App.router.navigate("media", { trigger: true });
     },
 
     scrollToMain: function(){
@@ -105,7 +112,7 @@ module.exports = View.extend({
 
     adminBtnHandler: function(e){
         e.preventDefault();
-        App.router.navigate("/admin", { trigger: true });
+        App.router.navigate("admin", { trigger: true });
     },
 
 

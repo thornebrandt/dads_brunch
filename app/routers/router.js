@@ -6,6 +6,7 @@ module.exports = Backbone.Router.extend({
         App.Views.IndexView = require('../views/index-view');
         App.Views.ShowView = require('../views/show-view');
         App.Views.CalendarView = require('../views/calendar-view');
+        App.Views.MediaView = require('../views/media-view');
         App.Views.AppView = require('../views/app-view');
         App.Views.AdminView = require('../views/admin-view');
         App.Views.AdminShowsView = require('../views/admin-shows-view');
@@ -18,9 +19,10 @@ module.exports = Backbone.Router.extend({
 
     routes: {
         '': 'index',
-        'shows/:urlTitle' : 'specificShow',
-        'calendar' : 'calendar',
-        'shows' : 'calendar',
+        'shows/:urlTitle(/)' : 'specificShow',
+        'calendar(/)' : 'calendar',
+        'shows(/)' : 'calendar',
+        'media(/)' : 'media',
         'admin(/)' : 'adminShows',
         'admin/shows(/)': 'adminShows',
         'admin/shows/new(/)': 'newShow',
@@ -88,10 +90,17 @@ module.exports = Backbone.Router.extend({
 
     calendar: function(){
         this.loadApp();
-        console.log("getting calendar view");
         App.views.calendarView = new App.Views.CalendarView();
         App.views.calendarView.render();
         App.views.calendarView.fetchShows();
+    },
+
+    media: function(){
+        this.loadApp();
+        console.log("getting media view");
+        App.views.mediaView = new App.Views.MediaView();
+        App.views.mediaView.render();
+        App.views.mediaView.fetchPhotos();
     },
 
     index: function() {

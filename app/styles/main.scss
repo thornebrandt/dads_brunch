@@ -4,10 +4,6 @@
 @import "base/base";
 
 @import "parallax";
-@import "admin";
-@import "terrain";
-@import "mountain";
-@import "show";
 
 
 body{
@@ -272,4 +268,259 @@ h2{
 
 .home_logo{
     cursor: pointer;
+}
+
+
+.thumbSet{
+    position: relative;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    text-align: center;
+
+    .mediaThumbLink{
+        display: inline-block;
+        width: 100px;
+        margin: 0px;
+        padding: 0px;
+        &.disabled{
+            pointer-events: none;
+        }
+        .mediaThumb{
+            margin: 0px;
+            padding: 0px;
+            display: inline-block;
+            height: 100px;
+            width: 100px;
+            max-width: 100px;
+        }
+    }
+
+}
+
+
+
+
+
+#mountain1{
+position: absolute;
+bottom: 0px;
+width: 100%;
+z-index: -1;
+@include media($medium-screen-up){
+    margin-top: 80%;
+    margin-bottom: 0px;
+    top: 0px;
+}
+}
+
+#mountain2{
+    display: none;
+    @include media($medium-screen-up){
+        display: block;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        margin-top: 65%;
+        margin-bottom: 0px;
+        top: 0px;
+    }
+
+}
+
+
+#dads_logo_container{
+    display: none;
+    @include media($medium-screen-up){
+        display: block;
+        margin-top: 250px;
+        text-align: center;
+        z-index: -1;
+    }
+
+}
+
+#dads_logo{
+    text-align: center;
+    max-width: 950px;
+    width: 60%;
+    @include media($large-screen-up){
+        width: auto;
+    }
+}
+
+
+
+#show_container{
+    color: $show-copy;
+    text-align: center;
+    .showDate{
+        margin: 0px;
+
+        @include media($tablet-up){
+            font-size: 2em;
+        }
+
+        @include media($medium-screen-up){
+            font-size: 2em;
+        }
+    }
+}
+
+
+.title{
+    margin: 0px;
+    color: $show-copy;
+    text-transform: uppercase;
+    font-weight: 400;
+    @include media($small-screen-up){
+        font-size: 2em;
+    }
+    @include media($tablet-up){
+        font-size: 3em;
+    }
+    @include media($medium-screen-up){
+        font-weight: 200;
+        font-size: 4em;
+    }
+}
+
+
+
+
+#currentShowPhoto{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+#showSummary{
+    margin: 0px;
+    padding: 0px;
+
+    @include media($tablet-up){
+        margin-top: -5px;
+        font-size: 2em;
+    }
+
+    @include media($medium-screen-up){
+        margin-top: -10px;
+        font-size: 2em;
+    }
+}
+
+#showDescription{
+    text-align: left;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    line-height: 1.5em;
+}
+
+
+#mainShowPhoto, .showPhoto{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+.showPhotoContainer{
+    width: 100%;
+}
+
+.showPhoto{
+    display: block;
+    width: 100%;
+}
+
+.showPreview{
+    height: auto;
+    pointer: cursor;
+    position: relative;
+    float: clear;
+    min-height: 100px;
+    margin-bottom: 20px;
+}
+
+.showPreviewThumbContainer{
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100px;
+}
+.showPreviewCopy{
+    margin-left: 110px;
+    display: block;
+}
+
+.clearFloat{
+    float: clear;
+}
+
+a.showPreviewDate{
+    color: $color-orange;
+    font-weight: 600;
+    font-size: 1.3em;
+}
+
+a.showPreviewTitle{
+    font-size: 1.5em;
+}
+
+
+#container{
+
+    h1{
+        text-align: center;
+    }
+
+    &.admin{
+        background-color: #5B727F;
+        min-height: 100%;
+        padding: 10px;
+        font-size: 18px;
+
+        a{
+            text-decoration:none;
+            &:hover{
+                color: gray;
+            }
+
+        }
+
+    }
+}
+
+
+
+
+#admin_menu{
+width: 100%;
+padding: 10px;
+font-size: 18px;
+    a{
+        margin-left: 20px;
+        margin-right: 20px;
+        color: white !important;
+    }
+}
+
+
+#descriptionInput{
+    min-height: 300px;
+}
+
+#showForm{
+    padding: 20px;
+    input, textarea{
+        max-width: 800px;
+    }
+}
+
+.showPreviewThumb{
+    width: 100px;
 }

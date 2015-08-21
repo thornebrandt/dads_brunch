@@ -171,7 +171,6 @@ var self = {
 
     deleteShow: function(req, res){
         if(authenticate(req, res)){
-            console.log("deleting show");
             var id = req.body._id;
             ShowModel.findById(id, function(err, show){
                 show.remove(function(err){

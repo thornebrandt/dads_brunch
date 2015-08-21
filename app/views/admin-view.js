@@ -9,6 +9,7 @@ module.exports = View.extend({
     events: {
         "click #homeBtn" : "homeBtnHandler",
         "click #newShowBtn" : "newShowBtnHandler",
+        "click #newPhotoBtn": "newPhotoBtnHandler",
         "click #showsBtn": "showsBtnHandler"
     },
 
@@ -25,6 +26,11 @@ module.exports = View.extend({
     newShowBtnHandler: function(e){
         e.preventDefault();
         App.router.navigate("admin/shows/new", { trigger: true });
+    },
+
+    newPhotoBtnHandler: function(e){
+        e.preventDefault();
+        App.router.navigate("admin/photos/new", { trigger: true });
     },
 
     showsBtnHandler: function(e){

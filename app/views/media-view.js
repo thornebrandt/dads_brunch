@@ -38,7 +38,7 @@ module.exports = View.extend({
     thumbClickHandler: function(e){
         e.preventDefault();
         var i = $(e.currentTarget).attr("rel");
-        this.renderPhoto(i);
+            this.renderPhoto(i);
     },
 
     renderPhoto: function(photoIndex){

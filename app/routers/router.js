@@ -11,6 +11,7 @@ module.exports = Backbone.Router.extend({
         App.Views.AdminView = require('../views/admin-view');
         App.Views.AdminShowsView = require('../views/admin-shows-view');
         App.Views.NewShowView = require('../views/new-show-view');
+        App.Views.NewPhotoView = require('../views/new-photo-view');
         App.Views.EditShowView = require('../views/edit-show-view');
         this.setupAjax();
 
@@ -26,6 +27,7 @@ module.exports = Backbone.Router.extend({
         'admin(/)' : 'adminShows',
         'admin/shows(/)': 'adminShows',
         'admin/shows/new(/)': 'newShow',
+        'admin/photos/new(/)': 'newShow',
         'admin/shows/:urlTitle/edit(/)' : 'editShow',
         'login/:password(/)': 'loginRoute',
         'logout(/)' : 'logoutRoute',
@@ -150,11 +152,21 @@ module.exports = Backbone.Router.extend({
             App.views.newShowView = new App.Views.NewShowView();
             App.views.newShowView.render();
         } else {
-            App.error("Not authorized to create new dudes");
+            App.error("Not authorized to create new shows");
             this.navigate("/", { trigger: true, replace: true });
         }
     },
 
+    newShow: function(){
+        if(App.authorized){
+            this.loadAdmin();
+            App.views.newPhotoView = new App.Views.NewPhotoView();
+            App.views.newPhotoView.render();
+        } else {
+            App.error("Not authorized to upload new photos");
+            this.navigate("/", { trigger: true, replace: true });
+        }
+    },
 
     setupAjax: function(){
         var password = window.localStorage.getItem('password');

@@ -107,8 +107,9 @@ module.exports = View.extend({
     },
 
     scrollToMain: function(){
+        console.log("scrolling");
         var offset = $("#main_container").css("marginTop");
-        $("#container").animate({ scrollTop: offset });
+        $("#container").animate({ scrollTop: offset }, "fast");
     },
 
     adminBtnHandler: function(e){

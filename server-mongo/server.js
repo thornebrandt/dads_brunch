@@ -28,7 +28,7 @@ var multerOptions = {
             file.mimetype !== 'image/png' &&
             file.mimetype !== 'image/jpg' &&
             file.mimetype !== 'image/jpeg' &&
-            file.mimetype !== 'images/gif'
+            file.mimetype !== 'image/gif'
         ){
             return false;
         }

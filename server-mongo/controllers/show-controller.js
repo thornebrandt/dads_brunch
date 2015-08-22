@@ -148,6 +148,10 @@ var self = {
     savePhotoAndThumb: function(req, res, callback){
         if(authenticate(req, res)){
             var file_string = req.files.photo.name;
+
+            console.log("file_string");
+            console.log(file_string);
+
             var file_name = file_string.substr(0, file_string.lastIndexOf('.'));
             var thumb_name = file_name + "_thumb." + req.files.photo.extension;
             gm(req.files.photo.path)

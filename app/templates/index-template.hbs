@@ -3,7 +3,9 @@
         <a href="#" class="currentShow" data-title="{{urlTitle}}"><img id="currentShowPhoto" src="{{photo}}"></a>
         <a href="#" class="currentShow title" id="currentShowTitle" data-title="{{urlTitle}}">{{{title}}}</a>
         <p id="showSummary">{{{summary}}}</p>
-        <p class="showDate">{{{showDate}}}</p>
+        <p class="showDate">
+            {{{showDate}}}<br>{{{timeInfo}}}
+        </p>
     {{else}}
         no title??
     {{/if}}

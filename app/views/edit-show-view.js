@@ -28,7 +28,6 @@ module.exports = View.extend({
 
     getRenderData: function(){
         this.model.formatDate();
-        console.log(this.model.toJSON());
         return this.model.toJSON();
     },
 
@@ -231,7 +230,7 @@ module.exports = View.extend({
     setupDatePick: function(){
         var $dateInput = $("#dateInput");
         var $datePicker = $("#inlineDatePicker");
-        var savedDate = new moment($dateInput.val(), time.datepicker_format).toDate();
+        var savedDate = new moment($dateInput.val()).toDate();
         $datePicker.datepicker({
             onSelect: function(date){
                 var ISO_date = new moment(date, time.datepicker_format).zone("-05:00").format();

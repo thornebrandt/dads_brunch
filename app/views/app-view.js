@@ -39,7 +39,6 @@ module.exports = View.extend({
         var largeHeight = 1000;
         var mainHeight = $("#main").height();
         var $footer = $("#footer");
-        console.log("checking height: " + mainHeight);
         if(mainHeight > largeHeight){
             $footer.addClass("largeHeight");
         } else {

@@ -75,7 +75,6 @@ module.exports = View.extend({
         if(typeof model !== "undefined"){
             $("#mainShowPhoto").attr("src", model.get("photo"));
         }
-        App.appView.scrollToMain();
     },
 
 

@@ -234,7 +234,7 @@ module.exports = View.extend({
         var savedDate = new moment($dateInput.val(), time.datepicker_format).toDate();
         $datePicker.datepicker({
             onSelect: function(date){
-                var ISO_date = new moment(date, time.datepicker_format).format();
+                var ISO_date = new moment(date, time.datepicker_format).zone("-05:00").format();
                 $dateInput.val(ISO_date);
             },
         });

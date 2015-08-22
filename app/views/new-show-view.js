@@ -60,12 +60,13 @@ module.exports = View.extend({
 
     setupDatePick: function(){
         var $dateInput = $("#dateInput");
-        var today = new moment().format(time.datepicker_format);
+        var today = new moment().zone("-05:00").format();
         $dateInput.val(today);
 
         $("#inlineDatePicker").datepicker({
             onSelect: function(date){
-                $dateInput.val(date);
+                var selectedDate = new moment(date, time.datepicker_format).zone("-05:00").format();
+                $dateInput.val(selectedDate);
             },
         });
     }

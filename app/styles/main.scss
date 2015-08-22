@@ -54,6 +54,9 @@ h2{
         background: black;
         position: fixed;
         overflow-y: auto;
+        &.admin{
+            max-height: 100%;
+        }
     }
     -webkit-transform: translate3d(0,0,0);
 

@@ -5,6 +5,7 @@ module.exports = {
   PORT_NUMBER: 1234,
   public_path: '/../../public',
   upload_path: '/api/uploads/',
+  image_path: 'public/uploads',
   thumb_path: 'public/uploads/thumbs/',
   auth_token: "123456"
 }

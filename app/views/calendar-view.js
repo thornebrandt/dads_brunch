@@ -16,10 +16,6 @@ module.exports = View.extend({
         return this.viewModel;
     },
 
-    afterRender: function(){
-        App.appView.scrollToMain();
-    },
-
     fetchShows: function(){
         this.futureCollection = new ShowCollection();
         var self = this;

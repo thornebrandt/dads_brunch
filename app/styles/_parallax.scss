@@ -22,6 +22,10 @@
             left: 0;
             perspective-origin-x: 100%;
             -webkit-perspective-origin: 100%;
+            transform-origin: 50%; //firefox
+            -o-transform-origin: 100%;
+            -webkit-transform-origin: 100%;
+
         }
     }
 
@@ -30,9 +34,9 @@
 
     .plx_bg1{
         @include media($medium-screen-up){
-            transform: translateX(-51%) translateZ(-1px) scale(2.1);
-            -webkit-transform: translateX(-51%) translateZ(-1px) scale(2.1);
-            -o-transform: translateX(-51%) translateZ(-1px) scale(2.1);
+            transform: translateZ(-1px) scale(2.1);
+            -webkit-transform: ranslateZ(-1px) scale(2.1);
+            -o-transform: translateZ(-1px) scale(2.1);
         }
 
     }
@@ -48,68 +52,39 @@
 
     .plx_bg2{
         @include media($medium-screen-up){
-            transform: translateX(-102%) translateZ(-2px) scale(3);
-            -webkit-transform: translateX(-102%) translateZ(-2px) scale(3);
-            -o-transform: translateX(-102%) translateZ(-2px) scale(3);
+            transform: translateZ(-2px) scale(3);
+            -webkit-transform:translateZ(-2px) scale(3);
+            -o-transform:translateZ(-2px) scale(3);
         }
     }
 
 
     .plx_bg2b{
         @include media($medium-screen-up){
-            transform: translateX(-127%) translateZ(-2.5px) scale(3.6);
-            -webkit-transform: translateX(-127%) translateZ(-2.5px) scale(3.6);
-            -o-transform: translateX(-127%) translateZ(-2.5px) scale(3.6);
+            transform: translateZ(-2.5px) scale(3.6);
+            -webkit-transform: translateZ(-2.5px) scale(3.6);
+            -o-transform: translateZ(-2.5px) scale(3.6);
         }
 
     }
 
     .plx_bg3{
         @include media($medium-screen-up){
-            transform: translateX(-153%) translateZ(-3px) scale(4.1);
-            -webkit-transform: translateX(-153%) translateZ(-3px) scale(4.1);
-            -o-transform: translateX(-153%) translateZ(-3px) scale(4.1);
+            transform: translateZ(-3px) scale(4.1);
+            -webkit-transform: translateZ(-3px) scale(4.1);
+            -o-transform: translateZ(-3px) scale(4.1);
         }
 
     }
 
     .plx_bg4{
         @include media($medium-screen-up){
-            transform: translateX(-205%) translateZ(-4px) scale(5);
-            -webkit-transform: translateX(-205%) translateZ(-4px) scale(5);
-            -o-transform: translateX(-205%) translateZ(-4px) scale(5);
+            transform:translateZ(-4px) scale(5);
+            -webkit-transform: translateZ(-4px) scale(5);
+            -o-transform: translateZ(-4px) scale(5);
         }
     }
 
-    .firefox{
-        @include media($medium-screen-up){
-
-            .plx_bg1{
-                transform: translateZ(-1px) scale(2.1);
-            }
-
-            .plx_bg1b{
-                transform: translateZ(-1.5px) scale(2.6);
-            }
-
-            .plx_bg2{
-                transform: translateZ(-2px) scale(3);
-            }
-
-
-            .plx_bg2b{
-                transform: translateZ(-2.5px) scale(3.6);
-            }
-
-            .plx_bg3{
-                transform: translateZ(-3px) scale(4);
-            }
-
-            .plx_bg4{
-                transform: translateZ(-4px) scale(5);
-            }
-        }
-    }
 }
 
 

@@ -31,7 +31,10 @@ var self = {
     },
 
     getCurrentShow: function(req, res){
-        var _query = ShowModel.findOne({ date: { $gte: new Date() }}).sort( { date: 1 });
+        var today = new Date();
+        var yesterday = new Date(today);
+        yesterday.setDate(yesterday.getDate()-1);
+        var _query = ShowModel.findOne({ date: { $gte: yesterday }}).sort( { date: 1 });
         _query.exec(function(err, model){
             if(!err){
                 if(model){

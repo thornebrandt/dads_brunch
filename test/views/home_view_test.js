@@ -1,5 +1,3 @@
-var HomeView = require('views/home_view');
-
 describe("HomeView", function() {
 
   beforeEach(function() {

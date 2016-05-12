@@ -8,7 +8,6 @@ DEBUG=main node ./server-mongo/server.js
 npm start
 
 
-
 #to find non-existent values
 db.testCollection.find( { date: { $exists: false }})
 

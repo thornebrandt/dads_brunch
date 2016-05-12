@@ -34,8 +34,8 @@
 
     .plx_bg1{
         @include media($medium-screen-up){
-            transform: translateZ(-1px) scale(2.1);
-            -webkit-transform: ranslateZ(-1px) scale(2.1);
+            transform: translateZ(-3px) scale(4);
+            -webkit-transform: translateZ(-1px) scale(2.1);
             -o-transform: translateZ(-1px) scale(2.1);
         }
 
